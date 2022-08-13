@@ -1,0 +1,35 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.1</TargetFramework>
+    <Nullable>enable</Nullable>
+    <Product>IrvineCubeSat.GpsParser</Product>
+    <Company>Ishan Pranav</Company>
+    <Authors>Ishan Pranav</Authors>
+    <Copyright>Copyright (c) 2019-2022 Ishan Pranav</Copyright>
+    <Description>A cross-platform library and application for parsing NovAtel GNSS command output message logs</Description>
+    <PackageProjectUrl>https://github.com/ishanpranav/novatel-gnss-log-parser</PackageProjectUrl>
+    <PackageReadmeFile>README.md</PackageReadmeFile>
+    <RepositoryUrl>https://github.com/ishanpranav/novatel-gnss-log-parser</RepositoryUrl>
+    <RepositoryType>git</RepositoryType>
+    <GeneratePackageOnBuild>False</GeneratePackageOnBuild>
+    <PackageRequireLicenseAcceptance>True</PackageRequireLicenseAcceptance>
+    <PackageLicenseExpression>MIT</PackageLicenseExpression>
+    <PackageTags>parser;satellite;gps;gnss;novatel;cubesat;gps-logs</PackageTags>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove="Attributes\LocalizedDescriptionAttribute.restext" />
+    <None Remove="Attributes\LocalizedDisplayNameAttribute.restext" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Include="Attributes\LocalizedDescriptionAttribute.restext" />
+    <EmbeddedResource Include="Attributes\LocalizedDisplayNameAttribute.restext" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="CsvHelper" Version="28.0.1" />
+  </ItemGroup>
+
+</Project>

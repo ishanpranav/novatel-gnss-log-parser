@@ -1,0 +1,47 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.3.32804.467
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "IrvineCubeSat.GpsParser", "src\IrvineCubeSat.GpsParser\IrvineCubeSat.GpsParser.csproj", "{289ABEAC-815C-4DC5-AE65-2DEEAFC643D1}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "IrvineCubeSat.GpsParser.Console", "src\IrvineCubeSat.GpsParser.Console\IrvineCubeSat.GpsParser.Console.csproj", "{91A38E99-3F8A-462C-8731-BE0F979FFF5C}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "IrvineCubeSat.GpsParser.Windows", "src\IrvineCubeSat.GpsParser.Windows\IrvineCubeSat.GpsParser.Windows.csproj", "{E44AB92F-2457-446E-A189-7CD2B29B82C4}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{D67D55F4-3996-4B45-923F-FD3C42107C14}"
+	ProjectSection(SolutionItems) = preProject
+		.editorconfig = .editorconfig
+		.gitattributes = .gitattributes
+		.gitignore = .gitignore
+		LICENSE.txt = LICENSE.txt
+		README.md = README.md
+		THIRD-PARTY-NOTICES.txt = THIRD-PARTY-NOTICES.txt
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{289ABEAC-815C-4DC5-AE65-2DEEAFC643D1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{289ABEAC-815C-4DC5-AE65-2DEEAFC643D1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{289ABEAC-815C-4DC5-AE65-2DEEAFC643D1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{289ABEAC-815C-4DC5-AE65-2DEEAFC643D1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{91A38E99-3F8A-462C-8731-BE0F979FFF5C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{91A38E99-3F8A-462C-8731-BE0F979FFF5C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{91A38E99-3F8A-462C-8731-BE0F979FFF5C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{91A38E99-3F8A-462C-8731-BE0F979FFF5C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E44AB92F-2457-446E-A189-7CD2B29B82C4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E44AB92F-2457-446E-A189-7CD2B29B82C4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E44AB92F-2457-446E-A189-7CD2B29B82C4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E44AB92F-2457-446E-A189-7CD2B29B82C4}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {7DD5C21E-179C-4F34-BDF3-162D77AA177C}
+	EndGlobalSection
+EndGlobal
