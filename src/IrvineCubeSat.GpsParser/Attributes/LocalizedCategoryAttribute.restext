@@ -1,0 +1,15 @@
+﻿# Copyright (c) 2019-2022 Ishan Pranav. All rights reserved.
+# Licensed under the MIT License.
+
+Auxiliary1Status = Auxiliary 1
+Auxiliary2Status = Auxiliary 2
+Auxiliary3Status = Auxiliary 3
+Auxiliary4Status = Auxiliary 4
+BaseStationId = Base Station
+Command = Log
+DatumIdNumber = Datum
+PositionType = Position
+ReceiverStatus = Receiver
+SatellitesTracked = Satellites
+SolutionStatus = Solution
+Timestamp = Timestamp

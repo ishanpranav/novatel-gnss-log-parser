@@ -6,11 +6,11 @@ using System;
 using System.Collections.Generic;
 using System.Globalization;
 using System.IO;
+using System.Reflection;
 using System.Text;
 using System.Text.RegularExpressions;
 using CsvHelper;
 using CsvHelper.Configuration;
-using CsvHelper.TypeConversion;
 using IrvineCubeSat.GpsParser.Attributes;
 
 namespace IrvineCubeSat.GpsParser
@@ -22,7 +22,7 @@ namespace IrvineCubeSat.GpsParser
     {
         private const RegexOptions Options = RegexOptions.IgnoreCase | RegexOptions.Compiled | RegexOptions.CultureInvariant;
 
-        private static readonly Regex s_messageRegex = new Regex(pattern: @"#(?<A>(?<B>[^;\*]+);(?<C>[^;\*]+))\*(?<D>[a-f\d]+)", Options);
+        private static readonly Regex s_messageRegex = new Regex(pattern: @"#(?<A>[^\*]+)\*(?<B>[a-f\d]+)", Options);
         private static readonly Regex s_whiteSpaceRegex = new Regex(pattern: @"[\n\r\s\t]+", Options);
 
         private readonly Dictionary<string, Type> _types = new Dictionary<string, Type>(StringComparer.OrdinalIgnoreCase);
@@ -57,13 +57,15 @@ namespace IrvineCubeSat.GpsParser
         /// <remarks>The <paramref name="type"/> must be annotated with the <see cref="CommandAttribute"/>.</remarks>
         public bool TryRegister(Type type)
         {
-            if (Attribute.GetCustomAttribute(type, typeof(CommandAttribute)) is CommandAttribute attribute)
+            CommandAttribute? attribute = type.GetCustomAttribute<CommandAttribute>();
+
+            if (attribute == null)
             {
-                return _types.TryAdd(attribute.Command, type);
+                return false;
             }
             else
             {
-                return false;
+                return _types.TryAdd(attribute.Command, type);
             }
         }
 
@@ -78,40 +80,29 @@ namespace IrvineCubeSat.GpsParser
 
             foreach (Match match in s_messageRegex.Matches(value))
             {
-                AsciiMessageHeader header;
-                CsvConfiguration configuration = new CsvConfiguration(CultureInfo.InvariantCulture)
+                string a = match.Groups["A"].Value;
+
+                using (StringReader stringReader = new StringReader(a))
+                using (CsvReader csvReader = new CsvReader(stringReader, new CsvConfiguration(CultureInfo.InvariantCulture)
                 {
                     Encoding = Encoding.ASCII,
                     HasHeaderRecord = false,
-                    MissingFieldFound = null
-                };
-                SecondsTimeSpanConverter timeSpanConverter = new SecondsTimeSpanConverter();
-
-                using (StringReader stringReader = new StringReader(match.Groups["B"].Value))
-                using (CsvReader csvReader = new CsvReader(stringReader, configuration))
+                    MissingFieldFound = null,
+                    NewLine = ";"
+                }))
                 {
-                    csvReader.Context.TypeConverterCache.AddConverter<TimeSpan>(timeSpanConverter);
-
                     await csvReader.ReadAsync();
 
-                    header = csvReader.GetRecord<AsciiMessageHeader>();
+                    AsciiMessageHeader header = csvReader.GetRecord<AsciiMessageHeader>();
 
                     header.Command = header.Command.Substring(startIndex: 0, header.Command.Length - 1);
-                }
-
-                object body;
-
-                using (StringReader stringReader = new StringReader(match.Groups["C"].Value))
-                using (CsvReader csvReader = new CsvReader(stringReader, configuration))
-                {
-                    csvReader.Context.TypeConverterCache.AddConverter<TimeSpan>(timeSpanConverter);
 
                     await csvReader.ReadAsync();
 
-                    body = csvReader.GetRecord(_types[header.Command]);
-                }
+                    object body = csvReader.GetRecord(_types[header.Command]);
 
-                yield return new AsciiMessage(match.Groups["A"].Value, header, body, uint.Parse(match.Groups["D"].Value, NumberStyles.HexNumber));
+                    yield return new AsciiMessage(a, header, body, uint.Parse(match.Groups["B"].Value, NumberStyles.HexNumber));
+                }
             }
         }
     }

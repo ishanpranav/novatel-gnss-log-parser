@@ -1,4 +1,8 @@
-﻿/*
+﻿// Crc32.cs
+// Copyright (c) 2019-2022 Ishan Pranav. All rights reserved.
+// Licensed under the MIT License.
+
+/*
  The MIT License (MIT)
 
  Copyright (c) 2019 NovAtel Inc.
@@ -28,7 +32,7 @@ namespace IrvineCubeSat.GpsParser
         /// <summary>
         /// Calculates the CRC-32 checksum for an ASCII string.
         /// </summary>
-        /// <param name="buffer">The string value.</param>
+        /// <param name="value">The string value.</param>
         /// <returns>The checksum.</returns>
         public static uint CalculateChecksum(string value)
         {

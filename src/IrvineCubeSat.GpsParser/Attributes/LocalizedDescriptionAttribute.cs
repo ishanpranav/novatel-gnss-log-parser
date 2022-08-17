@@ -12,7 +12,7 @@ namespace System.ComponentModel
 
         public LocalizedDescriptionAttribute(string description) : base(description)
         {
-            DescriptionValue = s_resourceManager.GetString(description) ?? description;
+            DescriptionValue = s_resourceManager.GetString(description) ?? string.Empty;
         }
     }
 }

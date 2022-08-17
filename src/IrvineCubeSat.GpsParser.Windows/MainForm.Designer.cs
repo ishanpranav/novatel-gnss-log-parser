@@ -227,8 +227,6 @@ namespace IrvineCubeSat.GpsParser.Windows
             // 
             resources.ApplyResources(this.myPropertyGrid, "myPropertyGrid");
             this.myPropertyGrid.Name = "myPropertyGrid";
-            this.myPropertyGrid.PropertySort = System.Windows.Forms.PropertySort.NoSort;
-            this.myPropertyGrid.ToolbarVisible = false;
             // 
             // MainForm
             // 
