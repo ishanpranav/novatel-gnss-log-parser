@@ -4,73 +4,86 @@
 
 using System;
 using System.ComponentModel;
+using System.Globalization;
 using CsvHelper.Configuration.Attributes;
-using CsvHelper.TypeConversion;
 
 namespace IrvineCubeSat.GpsParser
 {
     public class AsciiMessageHeader
     {
         [Index(0)]
-        [ReadOnly(true)]
+        [LocalizedCategory(nameof(Command))]
         [LocalizedDescription(nameof(Command))]
         [LocalizedDisplayName(nameof(Command))]
+        [ReadOnly(true)]
         public string Command { get; set; } = string.Empty;
 
         [Index(1)]
+        [LocalizedCategory(nameof(ReceiverStatus))]
         [LocalizedDescription(nameof(Port))]
         [LocalizedDisplayName(nameof(Port))]
         [ReadOnly(true)]
         public string Port { get; set; } = string.Empty;
 
         [Index(2)]
+        [LocalizedCategory(nameof(Command))]
         [LocalizedDescription(nameof(SequenceNumber))]
         [LocalizedDisplayName(nameof(SequenceNumber))]
         [ReadOnly(true)]
         public long SequenceNumber { get; set; }
 
         [Index(3)]
+        [LocalizedCategory(nameof(ReceiverStatus))]
         [LocalizedDescription(nameof(IdleTime))]
         [LocalizedDisplayName(nameof(IdleTime))]
         [ReadOnly(true)]
         public float IdleTime { get; set; }
 
         [Index(4)]
+        [LocalizedCategory(nameof(Timestamp))]
         [LocalizedDescription(nameof(TimeStatus))]
         [LocalizedDisplayName(nameof(TimeStatus))]
         [ReadOnly(true)]
         public GnssTimeStatus TimeStatus { get; set; }
 
         [Index(5)]
-        [LocalizedDescription(nameof(Week))]
-        [LocalizedDisplayName(nameof(Week))]
+        [LocalizedCategory(nameof(Timestamp))]
+        [LocalizedDescription(nameof(Weeks))]
+        [LocalizedDisplayName(nameof(Weeks))]
         [ReadOnly(true)]
-        public uint Week { get; set; }
+        public uint Weeks { get; set; }
 
         [Index(6)]
-        [LocalizedDescription(nameof(WeekOffset))]
-        [LocalizedDisplayName(nameof(WeekOffset))]
+        [LocalizedCategory(nameof(Timestamp))]
+        [LocalizedDescription(nameof(Seconds))]
+        [LocalizedDisplayName(nameof(Seconds))]
         [ReadOnly(true)]
-        public TimeSpan WeekOffset { get; set; }
+        public float Seconds { get; set; }
 
+        [LocalizedCategory(nameof(Timestamp))]
         [LocalizedDescription(nameof(Timestamp))]
         [LocalizedDisplayName(nameof(Timestamp))]
         public DateTime Timestamp
         {
             get
             {
-                return new DateTime(year: 1980, month: 1, day: 5).AddDays(Week * 7) + WeekOffset;
+                return new DateTime(year: 1980, month: 1, day: 6)
+                    .AddDays(Weeks * 7)
+                    .AddSeconds(Seconds);
             }
         }
 
         [Index(7)]
+        [LocalizedCategory(nameof(ReceiverStatus))]
         [LocalizedDescription(nameof(ReceiverStatus))]
         [LocalizedDisplayName(nameof(ReceiverStatus))]
-        [CsvHelper.Configuration.Attributes.TypeConverter(typeof(HexUInt32Converter))]
+        [NumberStyles(NumberStyles.HexNumber)]
         [ReadOnly(true)]
+        [CsvHelper.Configuration.Attributes.TypeConverter(typeof(CsvHelper.TypeConversion.UInt32Converter))]
         public GnssReceiverStatus ReceiverStatus { get; set; }
 
         [Index(9)]
+        [LocalizedCategory(nameof(ReceiverStatus))]
         [LocalizedDescription(nameof(ReceiverSoftwareVersion))]
         [LocalizedDisplayName(nameof(ReceiverSoftwareVersion))]
         [ReadOnly(true)]

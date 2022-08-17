@@ -34,7 +34,7 @@ namespace CsvHelper.TypeConversion
             }
             else
             {
-                return ConvertToString(value, row, memberMapData);
+                return base.ConvertToString(value, row, memberMapData);
             }
         }
     }

@@ -2,16 +2,31 @@
 # https://docs.novatel.com/OEM7/Content/Logs/BESTPOS.htm
 # https://docs.novatel.com/OEM7/Content/Logs/RXSTATUS.htm
 
+Auxiliary1StatusEventClearMask = The receiver will generate an event message whenever any of these flags is cleared from the the Auxiliary 1 Status property.
+Auxiliary2StatusEventClearMask = The receiver will generate an event message whenever any of these flags is cleared from the the Auxiliary 2 Status property.
+Auxiliary3StatusEventClearMask = The receiver will generate an event message whenever any of these flags is cleared from the the Auxiliary 3 Status property.
+Auxiliary4StatusEventClearMask = The receiver will generate an event message whenever any of these flags is cleared from the the Auxiliary 4 Status property.
+Auxiliary1StatusPriorityMask = The receiver will trigger an error whenever any of these flags becomes active in the Auxiliary 1 Status property.
+Auxiliary2StatusPriorityMask = The receiver will trigger an error whenever any of these flags becomes active in the Auxiliary 2 Status property.
+Auxiliary3StatusPriorityMask = The receiver will trigger an error whenever any of these flags becomes active in the Auxiliary 3 Status property.
+Auxiliary4StatusPriorityMask = The receiver will trigger an error whenever any of these flags becomes active in the Auxiliary 4 Status property.
+Auxiliary1StatusEventSetMask = The receiver will generate an event message whenever any of these flags becomes active in the Auxiliary 1 Status property.
+Auxiliary2StatusEventSetMask = The receiver will generate an event message whenever any of these flags becomes active in the Auxiliary 2 Status property.
+Auxiliary3StatusEventSetMask = The receiver will generate an event message whenever any of these flags becomes active in the Auxiliary 3 Status property.
+Auxiliary4StatusEventSetMask = The receiver will generate an event message whenever any of these flags becomes active in the Auxiliary 4 Status property.
 Height = The height above sea level.
 L1SatellitesInSolution = The number of satellites with L1/E1/B1 signals used in the solution.
 MultiFrequencySatellitesInSolution = The number of satellites with multi-frequency signals used in the solution.
 Port = The name of the port from which the log was generated.
 ReceiverSoftwareVersion = A value representing the receiver software build number.
+ReceiverStatusEventClearMask = The receiver will generate an event message whenever any of these flags is cleared from the the Receiver Status property.
+ReceiverStatusPriorityMask = The receiver will trigger an error whenever any of these flags becomes active in the Receiver Status property.
+ReceiverStatusEventSetMask = The receiver will trigger an error whenever any of these flags becomes active in the Receiver Status property.
 SatellitesInSolution = The number of satellites used in the solution.
 SatellitesTracked = The number of satellites tracked.
+Seconds = The number of seconds from the beginning of the GPS reference week.
 SequenceNumber = A number that counts from one less than the number of logs down to 0, where 0 means it is the last one of the set. Most logs only come out one at a time in which case this number is 0.
 StatusCodes = The number of status codes.
 TimeStatus = The value indicates the quality of the GPS reference time.
 Undulation = The relationship between the geoid and the ellipsoid of the chosen datum.
-Week = The GPS reference week number.
-WeekOffset = The number of seconds from the beginning of the GPS reference week.
+Weeks = The number of weeks since January 6, 1980.

@@ -19,11 +19,13 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="Attributes\LocalizedCategoryAttribute.restext" />
     <None Remove="Attributes\LocalizedDescriptionAttribute.restext" />
     <None Remove="Attributes\LocalizedDisplayNameAttribute.restext" />
   </ItemGroup>
 
   <ItemGroup>
+    <EmbeddedResource Include="Attributes\LocalizedCategoryAttribute.restext" />
     <EmbeddedResource Include="Attributes\LocalizedDescriptionAttribute.restext" />
     <EmbeddedResource Include="Attributes\LocalizedDisplayNameAttribute.restext" />
   </ItemGroup>
