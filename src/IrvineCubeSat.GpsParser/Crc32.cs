@@ -52,7 +52,7 @@ namespace IrvineCubeSat.GpsParser
         {
             uint result = 0;
 
-            for (int i = index; i < count; i++)
+            for (int i = index; i < index + count; i++)
             {
                 uint crc = (result ^ buffer[i]) & 0xff;
 
