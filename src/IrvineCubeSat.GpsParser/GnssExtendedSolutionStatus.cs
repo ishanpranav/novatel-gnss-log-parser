@@ -14,7 +14,7 @@ namespace IrvineCubeSat.GpsParser
         KlobucharBroadcast = Bits.Bit1,
         SbasBroadcast = Bits.Bit2,
         MultiFrequencyComputed = Bits.Bit1 | Bits.Bit2,
-        PsrDifferentialCorrection = Bits.Bit3,
+        PseudorangeDifferentialCorrection = Bits.Bit3,
         NovAtelBlendedIonosphericValue = Bits.Bit1 | Bits.Bit3,
         RtkAssistActive = Bits.Bit4,
         RtkAntennaInformationMissing = Bits.Bit5,

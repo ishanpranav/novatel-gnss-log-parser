@@ -24,6 +24,9 @@ await foreach (AsciiMessage message in parser.ParseAsync(value))
 Each [GNSS log](https://docs.novatel.com/OEM7/Content/Logs/Core_Logs.htm) needs a dedicated model in the parser. The following built-in logs are automatically registered.
 | Command | Model Class |
 | ------- | ----------- |
+| [`ALIGNBSLNENU`](https://docs.novatel.com/OEM7/Content/Logs/ALIGNBSLNENU.htm) | `EnuBaselinesUsingAlignCommand` |
+| [`ALIGNBSLNXYZ`](https://docs.novatel.com/OEM7/Content/Logs/ALIGNBSLNXYZ.htm) | `XyzBaselinesUsingAlignCommand` |
+| [`ALIGNDOP`](https://docs.novatel.com/OEM7/Content/Logs/ALIGNDOP.htm) | `DopCommand` |
 | [`BESTPOS`](https://docs.novatel.com/OEM7/Content/Logs/BESTPOS.htm) | `BestPositionCommand` |
 | [`RXSTATUS`](https://docs.novatel.com/OEM7/Content/Logs/RXSTATUS.htm) | `ReceiverStatusCommand` |
 

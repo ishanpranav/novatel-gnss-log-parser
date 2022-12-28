@@ -1,19 +1,17 @@
-﻿// BestPositionCommand.cs
+﻿// EnuBaselinesUsingAlign.cs
 // Copyright (c) 2019-2022 Ishan Pranav. All rights reserved.
 // Licensed under the MIT License.
 
-using System;
 using System.ComponentModel;
 using System.Globalization;
 using CsvHelper.Configuration.Attributes;
-using CsvHelper.TypeConversion;
 using IrvineCubeSat.GpsParser.Attributes;
 
 namespace IrvineCubeSat.GpsParser
 {
-    [Command("BESTPOS")]
+    [Command("ALIGNBSLNENU")]
     [DefaultProperty(nameof(SolutionStatus))]
-    public class BestPositionCommand
+    public class EnuBaselinesUsingAlignCommand
     {
         [Index(0)]
         [LocalizedCategory(nameof(SolutionStatus))]
@@ -31,118 +29,95 @@ namespace IrvineCubeSat.GpsParser
 
         [Index(2)]
         [LocalizedCategory(nameof(PositionType))]
-        [LocalizedDescription(nameof(Latitude))]
-        [LocalizedDisplayName(nameof(Latitude))]
+        [LocalizedDescription(nameof(EastBaseline))]
+        [LocalizedDisplayName(nameof(EastBaseline))]
         [ReadOnly(true)]
-        public double Latitude { get; set; }
+        public double EastBaseline { get; set; }
 
         [Index(3)]
         [LocalizedCategory(nameof(PositionType))]
-        [LocalizedDescription(nameof(Longitude))]
-        [LocalizedDisplayName(nameof(Longitude))]
+        [LocalizedDescription(nameof(NorthBaseline))]
+        [LocalizedDisplayName(nameof(NorthBaseline))]
         [ReadOnly(true)]
-        public double Longitude { get; set; }
+        public double NorthBaseline { get; set; }
 
         [Index(4)]
         [LocalizedCategory(nameof(PositionType))]
-        [LocalizedDescription(nameof(Height))]
-        [LocalizedDisplayName(nameof(Height))]
+        [LocalizedDescription(nameof(UpBaseline))]
+        [LocalizedDisplayName(nameof(UpBaseline))]
         [ReadOnly(true)]
-        public double Height { get; set; }
+        public double UpBaseline { get; set; }
 
         [Index(5)]
         [LocalizedCategory(nameof(PositionType))]
-        [LocalizedDescription(nameof(Undulation))]
-        [LocalizedDisplayName(nameof(Undulation))]
+        [LocalizedDescription(nameof(EastBaselineStandardDeviation))]
+        [LocalizedDisplayName(nameof(EastBaselineStandardDeviation))]
         [ReadOnly(true)]
-        public float Undulation { get; set; }
+        public double EastBaselineStandardDeviation { get; set; }
 
         [Index(6)]
         [LocalizedCategory(nameof(PositionType))]
-        [LocalizedDescription(nameof(DatumIdNumber))]
-        [LocalizedDisplayName(nameof(DatumIdNumber))]
+        [LocalizedDescription(nameof(NorthBaselineStandardDeviation))]
+        [LocalizedDisplayName(nameof(NorthBaselineStandardDeviation))]
         [ReadOnly(true)]
-        public GnssDatumIdNumber DatumIdNumber { get; set; }
+        public double NorthBaselineStandardDeviation { get; set; }
 
         [Index(7)]
         [LocalizedCategory(nameof(PositionType))]
-        [LocalizedDescription(nameof(LatitudeStandardDeviation))]
-        [LocalizedDisplayName(nameof(LatitudeStandardDeviation))]
+        [LocalizedDescription(nameof(UpBaselineStandardDeviation))]
+        [LocalizedDisplayName(nameof(UpBaselineStandardDeviation))]
         [ReadOnly(true)]
-        public float LatitudeStandardDeviation { get; set; }
+        public double UpBaselineStandardDeviation { get; set; }
 
         [Index(8)]
-        [LocalizedCategory(nameof(PositionType))]
-        [LocalizedDescription(nameof(LongitudeStandardDeviation))]
-        [LocalizedDisplayName(nameof(LongitudeStandardDeviation))]
+        [LocalizedCategory(nameof(RoverReceiverId))]
+        [LocalizedDescription(nameof(RoverReceiverId))]
+        [LocalizedDisplayName(nameof(RoverReceiverId))]
         [ReadOnly(true)]
-        public float LongitudeStandardDeviation { get; set; }
+        public string RoverReceiverId { get; set; } = "    ";
 
         [Index(9)]
-        [LocalizedCategory(nameof(PositionType))]
-        [LocalizedDescription(nameof(HeightStandardDeviation))]
-        [LocalizedDisplayName(nameof(HeightStandardDeviation))]
+        [LocalizedCategory(nameof(RoverReceiverId))]
+        [LocalizedDescription(nameof(MasterReceiverId))]
+        [LocalizedDisplayName(nameof(MasterReceiverId))]
         [ReadOnly(true)]
-        public float HeightStandardDeviation { get; set; }
+        public string MasterReceiverId { get; set; } = "AAAA";
 
         [Index(10)]
-        [LocalizedCategory(nameof(BaseStationId))]
-        [LocalizedDescription(nameof(BaseStationId))]
-        [LocalizedDisplayName(nameof(BaseStationId))]
-        [ReadOnly(true)]
-        public string BaseStationId { get; set; } = "    ";
-
-        [Index(11)]
-        [LocalizedCategory(nameof(BaseStationId))]
-        [LocalizedDescription(nameof(DifferentialAge))]
-        [LocalizedDisplayName(nameof(DifferentialAge))]
-        [ReadOnly(true)]
-        [CsvHelper.Configuration.Attributes.TypeConverter(typeof(SecondsTimeSpanConverter))]
-        public TimeSpan DifferentialAge { get; set; }
-
-        [Index(12)]
-        [LocalizedCategory(nameof(BaseStationId))]
-        [LocalizedDescription(nameof(SolutionAge))]
-        [LocalizedDisplayName(nameof(SolutionAge))]
-        [ReadOnly(true)]
-        [CsvHelper.Configuration.Attributes.TypeConverter(typeof(SecondsTimeSpanConverter))]
-        public TimeSpan SolutionAge { get; set; }
-
-        [Index(13)]
         [LocalizedCategory(nameof(SatellitesTracked))]
         [LocalizedDescription(nameof(SatellitesTracked))]
         [LocalizedDisplayName(nameof(SatellitesTracked))]
         [ReadOnly(true)]
         public byte SatellitesTracked { get; set; }
 
-        [Index(14)]
+        [Index(11)]
         [LocalizedCategory(nameof(SatellitesTracked))]
         [LocalizedDescription(nameof(SatellitesInSolution))]
         [LocalizedDisplayName(nameof(SatellitesInSolution))]
         [ReadOnly(true)]
         public byte SatellitesInSolution { get; set; }
 
-        [Index(15)]
+        [Index(12)]
         [LocalizedCategory(nameof(SatellitesTracked))]
-        [LocalizedDescription(nameof(L1SatellitesInSolution))]
-        [LocalizedDisplayName(nameof(L1SatellitesInSolution))]
+        [LocalizedDescription(nameof(SatellitesAboveElevationMaskAngle))]
+        [LocalizedDisplayName(nameof(SatellitesAboveElevationMaskAngle))]
         [ReadOnly(true)]
-        public byte L1SatellitesInSolution { get; set; }
+        public byte SatellitesAboveElevationMaskAngle { get; set; }
 
-        [Index(16)]
+        [Index(13)]
         [LocalizedCategory(nameof(SatellitesTracked))]
         [LocalizedDescription(nameof(MultiFrequencySatellitesInSolution))]
         [LocalizedDisplayName(nameof(MultiFrequencySatellitesInSolution))]
         [ReadOnly(true)]
         public byte MultiFrequencySatellitesInSolution { get; set; }
 
-        [Index(17)]
+        [Index(14)]
         [NumberStyles(NumberStyles.HexNumber)]
         [ReadOnly(true)]
         [CsvHelper.Configuration.Attributes.TypeConverter(typeof(CsvHelper.TypeConversion.ByteConverter))]
-        public GnssHex Field19 { get; set; }
+        public GnssHex Field16 { get; set; }
 
-        [Index(18)]
+        [Index(15)]
         [LocalizedCategory(nameof(SolutionStatus))]
         [LocalizedDescription(nameof(ExtendedSolutionStatus))]
         [LocalizedDisplayName(nameof(ExtendedSolutionStatus))]
@@ -151,7 +126,7 @@ namespace IrvineCubeSat.GpsParser
         [CsvHelper.Configuration.Attributes.TypeConverter(typeof(CsvHelper.TypeConversion.ByteConverter))]
         public GnssExtendedSolutionStatus ExtendedSolutionStatus { get; set; }
 
-        [Index(19)]
+        [Index(16)]
         [LocalizedCategory(nameof(SatellitesTracked))]
         [LocalizedDescription(nameof(GalileoBeiDouSignalsInSolution))]
         [LocalizedDisplayName(nameof(GalileoBeiDouSignalsInSolution))]
@@ -160,7 +135,7 @@ namespace IrvineCubeSat.GpsParser
         [CsvHelper.Configuration.Attributes.TypeConverter(typeof(CsvHelper.TypeConversion.ByteConverter))]
         public GnssGalileoBeiDouSignals GalileoBeiDouSignalsInSolution { get; set; }
 
-        [Index(20)]
+        [Index(17)]
         [LocalizedCategory(nameof(SatellitesTracked))]
         [LocalizedDescription(nameof(GpsGlonassSignalsInSolution))]
         [LocalizedDisplayName(nameof(GpsGlonassSignalsInSolution))]

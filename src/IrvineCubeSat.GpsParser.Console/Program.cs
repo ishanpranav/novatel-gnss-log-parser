@@ -7,31 +7,30 @@ using System.IO;
 using System.Text.Json;
 using System.Threading.Tasks;
 
-namespace IrvineCubeSat.GpsParser.Console
+namespace IrvineCubeSat.GpsParser.Console;
+
+internal static class Program
 {
-    internal static class Program
+    private static async Task Main(string[] args)
     {
-        private static async Task Main(string[] args)
+        string value = args[0];
+
+        if (File.Exists(value))
         {
-            string value = args[0];
-
-            if (File.Exists(value))
-            {
-                value = await File.ReadAllTextAsync(value);
-            }
-
-            List<AsciiMessage> messages = new List<AsciiMessage>();
-
-            await foreach (AsciiMessage message in new AsciiGpsParser().ParseAsync(value))
-            {
-                messages.Add(message);
-            }
-
-            await System.Console.Out.WriteLineAsync(JsonSerializer.Serialize(messages, new JsonSerializerOptions()
-            {
-                WriteIndented = true,
-                PropertyNamingPolicy = JsonNamingPolicy.CamelCase
-            }));
+            value = await File.ReadAllTextAsync(value);
         }
+
+        List<AsciiMessage> messages = new List<AsciiMessage>();
+
+        await foreach (AsciiMessage message in new AsciiGpsParser().ParseAsync(value))
+        {
+            messages.Add(message);
+        }
+
+        await System.Console.Out.WriteLineAsync(JsonSerializer.Serialize(messages, new JsonSerializerOptions()
+        {
+            WriteIndented = true,
+            PropertyNamingPolicy = JsonNamingPolicy.CamelCase
+        }));
     }
 }

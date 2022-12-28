@@ -4,36 +4,36 @@
 
 using System.Windows.Forms;
 
-namespace IrvineCubeSat.GpsParser.Windows
+namespace IrvineCubeSat.GpsParser.Windows;
+
+partial class MainForm
 {
-    partial class MainForm
+    /// <summary>
+    /// Required designer variable.
+    /// </summary>
+    private System.ComponentModel.IContainer components = null;
+
+    /// <summary>
+    /// Clean up any resources being used.
+    /// </summary>
+    /// <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+    protected override void Dispose(bool disposing)
     {
-        /// <summary>
-        /// Required designer variable.
-        /// </summary>
-        private System.ComponentModel.IContainer components = null;
-
-        /// <summary>
-        /// Clean up any resources being used.
-        /// </summary>
-        /// <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
-        protected override void Dispose(bool disposing)
+        if (disposing && (components != null))
         {
-            if (disposing && (components != null))
-            {
-                components.Dispose();
-            }
-            base.Dispose(disposing);
+            components.Dispose();
         }
+        base.Dispose(disposing);
+    }
 
-        #region Windows Form Designer generated code
+    #region Windows Form Designer generated code
 
-        /// <summary>
-        /// Required method for Designer support - do not modify
-        /// the contents of this method with the code editor.
-        /// </summary>
-        private void InitializeComponent()
-        {
+    /// <summary>
+    /// Required method for Designer support - do not modify
+    /// the contents of this method with the code editor.
+    /// </summary>
+    private void InitializeComponent()
+    {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
             this.openToolStripButton = new System.Windows.Forms.ToolStripButton();
@@ -255,31 +255,30 @@ namespace IrvineCubeSat.GpsParser.Windows
             this.ResumeLayout(false);
             this.PerformLayout();
 
-        }
-
-        #endregion
-
-        private ToolStrip toolStrip1;
-        private MenuStrip menuStrip1;
-        private StatusStrip statusStrip1;
-        private SplitContainer splitContainer1;
-        private ToolStripStatusLabel myToolStripStatusLabel;
-        private ListView myListView;
-        private ColumnHeader sequenceColumnHeader;
-        private ColumnHeader checksumColumnHeader;
-        private ToolStripStatusLabel vendorToolStripStatusLabel;
-        private ColumnHeader expectedChecksum;
-        private SplitContainer splitContainer2;
-        private RichTextBox myTextBox;
-        private PropertyGrid myPropertyGrid;
-        private ToolStripButton openToolStripButton;
-        private ToolStripSeparator toolStripSeparator7;
-        private ToolStripButton helpToolStripButton;
-        private ToolStripMenuItem fileToolStripMenuItem;
-        private ToolStripMenuItem openToolStripMenuItem;
-        private ToolStripSeparator toolStripSeparator;
-        private ToolStripMenuItem exitToolStripMenuItem;
-        private ToolStripMenuItem helpToolStripMenuItem;
-        private ToolStripMenuItem aboutToolStripMenuItem;
     }
+
+    #endregion
+
+    private ToolStrip toolStrip1;
+    private MenuStrip menuStrip1;
+    private StatusStrip statusStrip1;
+    private SplitContainer splitContainer1;
+    private ToolStripStatusLabel myToolStripStatusLabel;
+    private ListView myListView;
+    private ColumnHeader sequenceColumnHeader;
+    private ColumnHeader checksumColumnHeader;
+    private ToolStripStatusLabel vendorToolStripStatusLabel;
+    private ColumnHeader expectedChecksum;
+    private SplitContainer splitContainer2;
+    private RichTextBox myTextBox;
+    private PropertyGrid myPropertyGrid;
+    private ToolStripButton openToolStripButton;
+    private ToolStripSeparator toolStripSeparator7;
+    private ToolStripButton helpToolStripButton;
+    private ToolStripMenuItem fileToolStripMenuItem;
+    private ToolStripMenuItem openToolStripMenuItem;
+    private ToolStripSeparator toolStripSeparator;
+    private ToolStripMenuItem exitToolStripMenuItem;
+    private ToolStripMenuItem helpToolStripMenuItem;
+    private ToolStripMenuItem aboutToolStripMenuItem;
 }

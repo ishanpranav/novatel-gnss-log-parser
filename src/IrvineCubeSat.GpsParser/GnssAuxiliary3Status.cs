@@ -5,7 +5,7 @@
 using System;
 
 namespace IrvineCubeSat.GpsParser
-{
+{ 
     [Flags]
     public enum GnssAuxiliary3Status : uint
     {
@@ -16,10 +16,10 @@ namespace IrvineCubeSat.GpsParser
         BluetoothBufferOverrun = Bits.Bit3,
         Antenna1GainHigh = Bits.Bit4,
         Antenna1GainLow = Bits.Bit5,
-        Antenna1GainAnomaly = Bits.Bit4 | Bits.Bit5,
+        Antenna1GainAnomaly = Antenna1GainHigh | Antenna1GainLow,
         Antenna2GainHigh = Bits.Bit6,
         Antenna2GainLow = Bits.Bit7,
-        Antenna2GainAnomaly = Bits.Bit6 | Bits.Bit6,
+        Antenna2GainAnomaly = Antenna2GainHigh | Antenna2GainLow,
         WifiPowered = Bits.Bit8,
         WifiClientAPMode = Bits.Bit9,
         WifiConnectionReady = Bits.Bit10,

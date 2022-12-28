@@ -82,27 +82,26 @@ namespace IrvineCubeSat.GpsParser
             {
                 string a = match.Groups["A"].Value;
 
-                using (StringReader stringReader = new StringReader(a))
-                using (CsvReader csvReader = new CsvReader(stringReader, new CsvConfiguration(CultureInfo.InvariantCulture)
+                using StringReader stringReader = new StringReader(a);
+                using CsvReader csvReader = new CsvReader(stringReader, new CsvConfiguration(CultureInfo.InvariantCulture)
                 {
                     Encoding = Encoding.ASCII,
                     HasHeaderRecord = false,
                     MissingFieldFound = null,
                     NewLine = ";"
-                }))
-                {
-                    await csvReader.ReadAsync();
+                });
 
-                    AsciiMessageHeader header = csvReader.GetRecord<AsciiMessageHeader>();
+                await csvReader.ReadAsync();
 
-                    header.Command = header.Command.Substring(startIndex: 0, header.Command.Length - 1);
+                AsciiMessageHeader header = csvReader.GetRecord<AsciiMessageHeader>();
 
-                    await csvReader.ReadAsync();
+                header.Command = header.Command.Substring(startIndex: 0, header.Command.Length - 1);
 
-                    object body = csvReader.GetRecord(_types[header.Command]);
+                await csvReader.ReadAsync();
 
-                    yield return new AsciiMessage(a, header, body, uint.Parse(match.Groups["B"].Value, NumberStyles.HexNumber));
-                }
+                object body = csvReader.GetRecord(_types[header.Command]);
+
+                yield return new AsciiMessage(a, header, body, uint.Parse(match.Groups["B"].Value, NumberStyles.HexNumber));
             }
         }
     }

@@ -5,7 +5,7 @@
 using System;
 
 namespace IrvineCubeSat.GpsParser
-{
+{ 
     [Flags]
     public enum GnssAuxiliary4Status : uint
     {

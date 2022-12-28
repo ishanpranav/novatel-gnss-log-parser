@@ -1,36 +1,33 @@
-﻿// HexUInt32Converter.cs
+﻿// DopConverter.cs
 // Copyright (c) 2019-2022 Ishan Pranav. All rights reserved.
 // Licensed under the MIT License.
 
-using System.Globalization;
 using CsvHelper.Configuration;
+using IrvineCubeSat.GpsParser;
 
 namespace CsvHelper.TypeConversion
 {
-    /// <summary>
-    /// Converts a <see cref="uint"/> to and from a hexadecimal <see cref="string"/>.
-    /// </summary>
-    public class HexUInt32Converter : DefaultTypeConverter
+    internal sealed class DopConverter : DefaultTypeConverter
     {
         /// <inheritdoc/>
         public override object ConvertFromString(string? text, IReaderRow row, MemberMapData memberMapData)
         {
-            if (text is null)
+            if (float.TryParse(text, out float result))
             {
-                return 0u;
+                return new Dop(result);
             }
             else
             {
-                return uint.Parse(text, NumberStyles.HexNumber);
+                return Dop.Empty;
             }
         }
 
         /// <inheritdoc/>
         public override string ConvertToString(object? value, IWriterRow row, MemberMapData memberMapData)
         {
-            if (value is uint integer)
+            if (value is Dop dop)
             {
-                return integer.ToString(format: "x");
+                return dop.Value.ToString();
             }
             else
             {

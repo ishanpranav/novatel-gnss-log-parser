@@ -8,6 +8,7 @@ Auxiliary4Status = Auxiliary 4
 BaseStationId = Base Station
 Command = Log
 DatumIdNumber = Datum
+GeometricDop = Dilution of Precision
 PositionType = Position
 ReceiverStatus = Receiver
 SatellitesTracked = Satellites
