@@ -2,3 +2,6 @@
 # Licensed under the MIT License.
 
 * text=auto
+*.manifest binary
+*.application binary
+*.deploy binary

@@ -1,7 +1,0 @@
-# Copyright (c) 2021-2022 Ishan Pranav. All rights reserved.
-# Licensed under the MIT License.
-
-**/*.manifest binary
-**/*.application binary
-**/*.deploy binary
-**/* -text
