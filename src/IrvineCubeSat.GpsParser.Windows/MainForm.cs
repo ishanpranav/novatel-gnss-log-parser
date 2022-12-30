@@ -25,16 +25,6 @@ internal sealed partial class MainForm : Form
         _text = Resources.Title;
     }
 
-    protected override void OnDragEnter(DragEventArgs drgevent)
-    {
-        if (drgevent.Data is not null && drgevent.Data.GetData(DataFormats.FileDrop) is string[])
-        {
-            drgevent.Effect = DragDropEffects.Copy;
-        }
-
-        base.OnDragEnter(drgevent);
-    }
-
     private void OnListViewSelectedIndexChanged(object sender, EventArgs e)
     {
         if (myListView.SelectedIndices.Count is 1)
