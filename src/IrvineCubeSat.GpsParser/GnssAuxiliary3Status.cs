@@ -1,11 +1,11 @@
 ﻿// GnssAuxiliary3Status.cs
-// Copyright (c) 2019-2022 Ishan Pranav. All rights reserved.
+// Copyright (c) 2019-2023 Ishan Pranav. All rights reserved.
 // Licensed under the MIT License.
 
 using System;
 
 namespace IrvineCubeSat.GpsParser
-{ 
+{
     [Flags]
     public enum GnssAuxiliary3Status : uint
     {

@@ -1,24 +1,39 @@
 ﻿// Dop.cs
-// Copyright (c) 2019-2022 Ishan Pranav. All rights reserved.
+// Copyright (c) 2019-2023 Ishan Pranav. All rights reserved.
 // Licensed under the MIT License.
 
 using System;
 
 namespace IrvineCubeSat.GpsParser
 {
+    /// <summary>
+    /// Represents a dilution of precision value.
+    /// </summary>
     public readonly struct Dop : IComparable, IComparable<Dop>, IEquatable<Dop>
     {
         public static readonly Dop Empty;
 
         private static Array? _values;
 
+        /// <summary>
+        /// Initializes a new instance of the <see cref="Dop"/> struct.
+        /// </summary>
+        /// <param name="value">The dilution of precision value.</param>
         public Dop(float value)
         {
             Value = value;
         }
 
+        /// <summary>
+        /// Gets the dilution of precision.
+        /// </summary>
+        /// <value>The dilution of precision value.</value>
         public float Value { get; }
 
+        /// <summary>
+        /// Gets an interpretation of the dilution of precision value.
+        /// </summary>
+        /// <value>The interpretation of the <see cref="Value"/>.</value>
         public DopInterpretation Interpretation
         {
             get
@@ -80,11 +95,23 @@ namespace IrvineCubeSat.GpsParser
             return Value.GetHashCode();
         }
 
+        /// <summary>
+        /// Returns a value that indicates whether the values of two <see cref="Dop"/> objects are equal.
+        /// </summary>
+        /// <param name="left">The first value to compare.</param>
+        /// <param name="right">The second value to compare.</param>
+        /// <returns><see langword="true"/> if <param name="left"/> and <paramref name="right"/> are equal; otherwise, <see langword="false"/>.</returns>
         public static bool operator ==(Dop left, Dop right)
         {
             return left.Value == right.Value;
         }
 
+        /// <summary>
+        /// Returns a value that indicates whether the values of two <see cref="Dop"/> objects are not equal.
+        /// </summary>
+        /// <param name="left">The first value to compare.</param>
+        /// <param name="right">The second value to compare.</param>
+        /// <returns><see langword="true"/> if <param name="left"/> and <paramref name="right"/> are not equal; otherwise, <see langword="false"/>.</returns>
         public static bool operator !=(Dop left, Dop right)
         {
             return left.Value != right.Value;

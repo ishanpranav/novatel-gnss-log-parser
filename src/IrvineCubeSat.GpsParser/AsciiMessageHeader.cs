@@ -1,5 +1,5 @@
 ﻿// AsciiMessageHeader.cs
-// Copyright (c) 2019-2022 Ishan Pranav. All rights reserved.
+// Copyright (c) 2019-2023 Ishan Pranav. All rights reserved.
 // Licensed under the MIT License.
 
 using System;
@@ -30,7 +30,7 @@ namespace IrvineCubeSat.GpsParser
         [LocalizedDescription(nameof(SequenceNumber))]
         [LocalizedDisplayName(nameof(SequenceNumber))]
         [ReadOnly(true)]
-        public long SequenceNumber { get; set; }
+        public int SequenceNumber { get; set; }
 
         [Index(3)]
         [LocalizedCategory(nameof(ReceiverStatus))]
@@ -46,6 +46,10 @@ namespace IrvineCubeSat.GpsParser
         [ReadOnly(true)]
         public GnssTimeStatus TimeStatus { get; set; }
 
+        /// <summary>
+        /// Gets the GPS reference week number: the number of weeks since January 6, 1980.
+        /// </summary>
+        /// <value>The number of weeks since January 6, 1980.</value>
         [Index(5)]
         [LocalizedCategory(nameof(Timestamp))]
         [LocalizedDescription(nameof(Weeks))]
@@ -53,6 +57,10 @@ namespace IrvineCubeSat.GpsParser
         [ReadOnly(true)]
         public uint Weeks { get; set; }
 
+        /// <summary>
+        /// Gets the GPS reference second number: the number of seconds from the beginning of the GPS reference week.
+        /// </summary>
+        /// <value>The number of seconds from the beginning of the GPS reference week, accurate to the millisecond level.</value>
         [Index(6)]
         [LocalizedCategory(nameof(Timestamp))]
         [LocalizedDescription(nameof(Seconds))]
@@ -60,6 +68,10 @@ namespace IrvineCubeSat.GpsParser
         [ReadOnly(true)]
         public float Seconds { get; set; }
 
+        /// <summary>
+        /// Gets the GPS timestamp.
+        /// </summary>
+        /// <value>The current GPS time.</value>
         [LocalizedCategory(nameof(Timestamp))]
         [LocalizedDescription(nameof(Timestamp))]
         [LocalizedDisplayName(nameof(Timestamp))]

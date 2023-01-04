@@ -1,4 +1,4 @@
-﻿# Copyright (c) 2019-2022 Ishan Pranav. All rights reserved.
+﻿# Copyright (c) 2019-2023 Ishan Pranav. All rights reserved.
 # Licensed under the MIT License.
 
 *.* = All Files
@@ -9,10 +9,11 @@
 ALIGNBSLNENU = East-North-Up Baselines Using Align
 ALIGNBSLNXYZ = XYZ Baselines Using Align
 ALIGNDOP = Calculated DOP Values
+ALMANAC = Decoded GPS Almanac
 BESTPOS = Best Position
 GetCommandMessage = {0:n0} - Body
 GetHeaderMessage = {0:n0} - Header
 GetStatusMessage = {0:n0} message(s)
 RXSTATUS = Receiver Status
 Title = GNSS Log Parser
-VendorMessage = Copyright © 2019-2022 Ishan Pranav
+VendorMessage = Copyright © 2019-2023 Ishan Pranav

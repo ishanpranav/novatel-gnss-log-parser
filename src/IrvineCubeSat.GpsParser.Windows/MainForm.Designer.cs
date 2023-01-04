@@ -1,5 +1,5 @@
 ﻿// MainForm.Designer.cs
-// Copyright (c) 2019-2022 Ishan Pranav. All rights reserved.
+// Copyright (c) 2019-2023 Ishan Pranav. All rights reserved.
 // Licensed under the MIT License.
 
 using System.Windows.Forms;
@@ -56,6 +56,7 @@ partial class MainForm
             this.expectedChecksum = new System.Windows.Forms.ColumnHeader();
             this.splitContainer2 = new System.Windows.Forms.SplitContainer();
             this.myTextBox = new System.Windows.Forms.RichTextBox();
+            this.myDataGridView = new System.Windows.Forms.DataGridView();
             this.myPropertyGrid = new System.Windows.Forms.PropertyGrid();
             this.toolStrip1.SuspendLayout();
             this.menuStrip1.SuspendLayout();
@@ -68,6 +69,7 @@ partial class MainForm
             this.splitContainer2.Panel1.SuspendLayout();
             this.splitContainer2.Panel2.SuspendLayout();
             this.splitContainer2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.myDataGridView)).BeginInit();
             this.SuspendLayout();
             // 
             // toolStrip1
@@ -215,6 +217,7 @@ partial class MainForm
             // 
             // splitContainer2.Panel2
             // 
+            this.splitContainer2.Panel2.Controls.Add(this.myDataGridView);
             this.splitContainer2.Panel2.Controls.Add(this.myPropertyGrid);
             // 
             // myTextBox
@@ -223,6 +226,13 @@ partial class MainForm
             this.myTextBox.Name = "myTextBox";
             this.myTextBox.ReadOnly = true;
             // 
+            // myDataGridView
+            // 
+            this.myDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            resources.ApplyResources(this.myDataGridView, "myDataGridView");
+            this.myDataGridView.Name = "myDataGridView";
+            this.myDataGridView.RowTemplate.Height = 25;
+            // 
             // myPropertyGrid
             // 
             resources.ApplyResources(this.myPropertyGrid, "myPropertyGrid");
@@ -230,6 +240,7 @@ partial class MainForm
             // 
             // MainForm
             // 
+            this.AllowDrop = true;
             resources.ApplyResources(this, "$this");
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.splitContainer1);
@@ -252,6 +263,7 @@ partial class MainForm
             this.splitContainer2.Panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer2)).EndInit();
             this.splitContainer2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.myDataGridView)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -271,7 +283,6 @@ partial class MainForm
     private ColumnHeader expectedChecksum;
     private SplitContainer splitContainer2;
     private RichTextBox myTextBox;
-    private PropertyGrid myPropertyGrid;
     private ToolStripButton openToolStripButton;
     private ToolStripSeparator toolStripSeparator7;
     private ToolStripButton helpToolStripButton;
@@ -281,4 +292,6 @@ partial class MainForm
     private ToolStripMenuItem exitToolStripMenuItem;
     private ToolStripMenuItem helpToolStripMenuItem;
     private ToolStripMenuItem aboutToolStripMenuItem;
+    private PropertyGrid myPropertyGrid;
+    private DataGridView myDataGridView;
 }

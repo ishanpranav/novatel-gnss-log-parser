@@ -1,8 +1,9 @@
 ﻿// CommandAttribute.cs
-// Copyright (c) 2019-2022 Ishan Pranav. All rights reserved.
+// Copyright (c) 2019-2023 Ishan Pranav. All rights reserved.
 // Licensed under the MIT License.
 
 using System;
+using IrvineCubeSat.GpsParser.BodyParsers;
 
 namespace IrvineCubeSat.GpsParser.Attributes
 {
@@ -16,15 +17,39 @@ namespace IrvineCubeSat.GpsParser.Attributes
         /// Gets the name of the command.
         /// </summary>
         /// <value>The command name.</value>
-        public string Command { get; }
+        public string Name { get; }
+
+        /// <summary>
+        /// Gets the log parser type.
+        /// </summary>
+        /// <value>A type that implements <see cref="IBodyParser"/>.</value>
+        public Type ParserType { get; }
 
         /// <summary>
         /// Initializes a new instance of the <see cref="CommandAttribute"/> class.
         /// </summary>
-        /// <param name="command">The command name.</param>
-        public CommandAttribute(string command)
+        /// <param name="name">The command name.</param>
+        public CommandAttribute(string name)
         {
-            Command = command;
+            Name = name;
+            ParserType = typeof(BodyParser);
+        }
+
+        /// <summary>
+        /// Initializes a new instance of the <see cref="CommandAttribute"/> class.
+        /// </summary>
+        /// <param name="name">The command name.</param>
+        /// <param name="parserType">A type that implements <see cref="IBodyParser"/>.</param>
+        /// <exception cref="ArgumentException">The log parser type does not implement <see cref="IBodyParser"/>.</exception>
+        public CommandAttribute(string name, Type parserType)
+        {
+            if (!typeof(IBodyParser).IsAssignableFrom(parserType))
+            {
+                throw new ArgumentException($"The log parser type must implement {typeof(IBodyParser).FullName}.", nameof(parserType));
+            }
+
+            Name = name;
+            ParserType = parserType;
         }
     }
 }

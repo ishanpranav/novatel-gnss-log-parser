@@ -6,7 +6,7 @@
     <Product>IrvineCubeSat.GpsParser.Console</Product>
     <Company>Ishan Pranav</Company>
     <Authors>Ishan Pranav</Authors>
-    <Copyright>Copyright (c) 2019-2022 Ishan Pranav</Copyright>
+    <Copyright>Copyright (c) 2019-2023 Ishan Pranav</Copyright>
     <Description>A cross-platform library and application for parsing NovAtel GNSS command output message logs</Description>
     <PackageProjectUrl>https://github.com/ishanpranav/novatel-gnss-log-parser</PackageProjectUrl>
     <PackageReadmeFile>README.md</PackageReadmeFile>

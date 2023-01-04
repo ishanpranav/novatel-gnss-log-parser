@@ -1,11 +1,13 @@
 ﻿// MainForm.cs
-// Copyright (c) 2019-2022 Ishan Pranav. All rights reserved.
+// Copyright (c) 2019-2023 Ishan Pranav. All rights reserved.
 // Licensed under the MIT License.
 
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.IO;
+using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace IrvineCubeSat.GpsParser.Windows;
@@ -19,18 +21,65 @@ internal sealed partial class MainForm : Form
     {
         InitializeComponent();
 
+        _text = Resources.Title;
         vendorToolStripStatusLabel.Alignment = ToolStripItemAlignment.Right;
         vendorToolStripStatusLabel.Text = Resources.VendorMessage;
+    }
 
-        _text = Resources.Title;
+    protected override void OnLoad(EventArgs e)
+    {
+        Text = _text;
+
+        base.OnLoad(e);
+    }
+
+    protected override void OnDragOver(DragEventArgs drgevent)
+    {
+        if (drgevent.Data is not null && drgevent.Data.GetDataPresent(DataFormats.FileDrop))
+        {
+            drgevent.Effect = DragDropEffects.Copy;
+        }
+        else
+        {
+            drgevent.Effect = DragDropEffects.None;
+        }
+
+        base.OnDragOver(drgevent);
+    }
+
+    protected override async void OnDragDrop(DragEventArgs drgevent)
+    {
+        if (drgevent.Data is not null && drgevent.Data.GetData(DataFormats.FileDrop) is string[] fileNames && fileNames.Length > 0)
+        {
+            await OpenAsync(fileNames[0]);
+        }
+
+        base.OnDragDrop(drgevent);
     }
 
     private void OnListViewSelectedIndexChanged(object sender, EventArgs e)
     {
         if (myListView.SelectedIndices.Count is 1)
         {
-            myPropertyGrid.SelectedObject = myListView.SelectedItems[0].Tag;
-            myTextBox.Text = myListView.SelectedItems[0].ToolTipText;
+            ListViewItem item = myListView.SelectedItems[0];
+            object tag = item.Tag;
+
+            if (tag is IEnumerable)
+            {
+                myDataGridView.Show();
+                myPropertyGrid.Hide();
+
+                myDataGridView.DataSource = tag;
+            }
+            else
+            {
+                myPropertyGrid.Show();
+                myDataGridView.Hide();
+
+                myPropertyGrid.SelectedObject = tag;
+            }
+
+            myTextBox.Text = item.ToolTipText;
         }
     }
 
@@ -42,27 +91,31 @@ internal sealed partial class MainForm : Form
             FilterIndex = 2
         };
 
-        if (openFileDialog.ShowDialog() is not DialogResult.OK)
+        if (openFileDialog.ShowDialog() is DialogResult.OK)
         {
-            return;
+            await OpenAsync(openFileDialog.FileName);
+        }
+    }
+
+    private async Task OpenAsync(string fileName)
+    {
+        string relativePath = Path.GetRelativePath(Environment.CurrentDirectory, fileName);
+
+        if (relativePath.Length < fileName.Length)
+        {
+            fileName = relativePath;
         }
 
-        string path = openFileDialog.FileName;
-        string relativePath = Path.GetRelativePath(Environment.CurrentDirectory, path);
-
-        if (relativePath.Length < path.Length)
-        {
-            path = relativePath;
-        }
-
-        Text = $"{_text} - {path}";
-        myListView.Items.Clear();
+        Text = $"{_text} - {fileName}";
+        myDataGridView.DataSource = null;
         myPropertyGrid.SelectedObject = null;
+
+        myListView.Items.Clear();
         myTextBox.Clear();
 
         Dictionary<Type, int> commands = new Dictionary<Type, int>();
 
-        await foreach (AsciiMessage message in _parser.ParseAsync(await File.ReadAllTextAsync(openFileDialog.FileName)))
+        await foreach (AsciiMessage message in _parser.ParseAsync(await File.ReadAllTextAsync(fileName)))
         {
             ListViewGroup group;
             Type type = message.Command.GetType();
@@ -104,6 +157,7 @@ internal sealed partial class MainForm : Form
             });
         }
 
+        myDataGridView.AutoResizeColumns(DataGridViewAutoSizeColumnsMode.AllCells);
         myListView.AutoResizeColumns(ColumnHeaderAutoResizeStyle.ColumnContent);
 
         myToolStripStatusLabel.Text = Resources.GetStatusMessage(myListView.Items.Count / 2);
@@ -113,15 +167,13 @@ internal sealed partial class MainForm : Form
     {
         using Process? process = Process.Start(new ProcessStartInfo()
         {
-            FileName = "http://github.com/ishanpranav/novatel-gnss-log-parser",
+            FileName = "https://github.com/ishanpranav/novatel-gnss-log-parser",
             UseShellExecute = true
         });
 
-        if (process is null)
+        if (process is not null)
         {
-            return;
+            await process.WaitForExitAsync();
         }
-
-        await process.WaitForExitAsync();
     }
 }

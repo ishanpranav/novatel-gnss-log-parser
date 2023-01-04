@@ -1,5 +1,5 @@
-﻿// EnuBaselinesUsingAlign.cs
-// Copyright (c) 2019-2022 Ishan Pranav. All rights reserved.
+﻿// EnuBaselinesUsingAlignCommand.cs
+// Copyright (c) 2019-2023 Ishan Pranav. All rights reserved.
 // Licensed under the MIT License.
 
 using System.ComponentModel;

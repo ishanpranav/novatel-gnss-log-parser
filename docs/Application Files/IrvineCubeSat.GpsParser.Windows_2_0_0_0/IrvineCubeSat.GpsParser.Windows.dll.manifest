@@ -63,13 +63,13 @@
       <dsig:DigestValue>kIal5ra8OpL2kYCyRmrrDXjxuavsYED7gWdjB8iFhdE=</dsig:DigestValue>
     </hash>
   </file>
-  <file name="IrvineCubeSat.GpsParser.dll" size="62976">
+  <file name="IrvineCubeSat.GpsParser.dll" size="68096">
     <hash>
       <dsig:Transforms>
         <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
       </dsig:Transforms>
       <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-      <dsig:DigestValue>+JEEe566ECLiPFlpIiQ+SEKsn/9/6RtLviSMdtMR4kY=</dsig:DigestValue>
+      <dsig:DigestValue>aaGrFOSsTnr7/hwfUOMlRxxYFkEdWPnBbFWKO29ZOyI=</dsig:DigestValue>
     </hash>
   </file>
   <file name="IrvineCubeSat.GpsParser.Windows.deps.json" size="1395">
@@ -81,22 +81,22 @@
       <dsig:DigestValue>VOdtBJ/31+SgDbUVDejPcTBS2H2anN6CCgNgsdQ31qE=</dsig:DigestValue>
     </hash>
   </file>
-  <file name="IrvineCubeSat.GpsParser.Windows.dll" size="35840">
+  <file name="IrvineCubeSat.GpsParser.Windows.dll" size="39424">
     <hash>
       <dsig:Transforms>
         <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
       </dsig:Transforms>
       <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-      <dsig:DigestValue>4bHfOUA/gdN6xIcKgiPm2tVS2BQvyaQNSCT+AiQuC1Y=</dsig:DigestValue>
+      <dsig:DigestValue>bYQ8VQ+DIVRl2X3rds3DSfLmHTtvpa/WyYVM9bQ44E8=</dsig:DigestValue>
     </hash>
   </file>
-  <file name="IrvineCubeSat.GpsParser.Windows.exe" size="147968">
+  <file name="IrvineCubeSat.GpsParser.Windows.exe" size="148480">
     <hash>
       <dsig:Transforms>
         <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
       </dsig:Transforms>
       <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-      <dsig:DigestValue>J8gOGyWqhdYGJd9LGrKCh6fJ43Ne3OImE6+qIXuEicY=</dsig:DigestValue>
+      <dsig:DigestValue>FIeGU+hoX7j/DrwtBgi/C89knoyFqcRqUgn+iNq/I68=</dsig:DigestValue>
     </hash>
   </file>
   <file name="IrvineCubeSat.GpsParser.Windows.runtimeconfig.json" size="372">
@@ -114,7 +114,7 @@
         <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
       </dsig:Transforms>
       <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-      <dsig:DigestValue>zRRa5O8i/ZvOiTMHdj5tpCHJ6KQZT0T0yxfTcdJu87g=</dsig:DigestValue>
+      <dsig:DigestValue>vYH1WC4DBvkBaTxn578fQvzIJHP0KN/8ZiiuFDRBSQ8=</dsig:DigestValue>
     </hash>
   </file>
   <file name="README.md" size="5445">

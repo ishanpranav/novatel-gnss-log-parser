@@ -368,6 +368,30 @@
   <data name="&gt;&gt;splitContainer2.Panel1.ZOrder" xml:space="preserve">
     <value>0</value>
   </data>
+  <data name="myDataGridView.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Fill</value>
+  </data>
+  <data name="myDataGridView.Location" type="System.Drawing.Point, System.Drawing">
+    <value>0, 0</value>
+  </data>
+  <data name="myDataGridView.Size" type="System.Drawing.Size, System.Drawing">
+    <value>510, 257</value>
+  </data>
+  <data name="myDataGridView.TabIndex" type="System.Int32, mscorlib">
+    <value>1</value>
+  </data>
+  <data name="&gt;&gt;myDataGridView.Name" xml:space="preserve">
+    <value>myDataGridView</value>
+  </data>
+  <data name="&gt;&gt;myDataGridView.Type" xml:space="preserve">
+    <value>System.Windows.Forms.DataGridView, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;myDataGridView.Parent" xml:space="preserve">
+    <value>splitContainer2.Panel2</value>
+  </data>
+  <data name="&gt;&gt;myDataGridView.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
   <data name="myPropertyGrid.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
     <value>Fill</value>
   </data>
@@ -380,6 +404,9 @@
   <data name="myPropertyGrid.TabIndex" type="System.Int32, mscorlib">
     <value>0</value>
   </data>
+  <data name="myPropertyGrid.Visible" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
   <data name="&gt;&gt;myPropertyGrid.Name" xml:space="preserve">
     <value>myPropertyGrid</value>
   </data>
@@ -390,7 +417,7 @@
     <value>splitContainer2.Panel2</value>
   </data>
   <data name="&gt;&gt;myPropertyGrid.ZOrder" xml:space="preserve">
-    <value>0</value>
+    <value>1</value>
   </data>
   <data name="&gt;&gt;splitContainer2.Panel2.Name" xml:space="preserve">
     <value>splitContainer2.Panel2</value>

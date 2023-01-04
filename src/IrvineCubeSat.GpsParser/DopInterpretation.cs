@@ -1,5 +1,5 @@
 ﻿// DopInterpretation.cs
-// Copyright (c) 2019-2022 Ishan Pranav. All rights reserved.
+// Copyright (c) 2019-2023 Ishan Pranav. All rights reserved.
 // Licensed under the MIT License.
 
 namespace IrvineCubeSat.GpsParser

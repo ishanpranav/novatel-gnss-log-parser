@@ -1,5 +1,5 @@
 ﻿// AsciiGpsParser.cs
-// Copyright (c) 2019-2022 Ishan Pranav. All rights reserved.
+// Copyright (c) 2019-2023 Ishan Pranav. All rights reserved.
 // Licensed under the MIT License.
 
 using System;
@@ -12,6 +12,7 @@ using System.Text.RegularExpressions;
 using CsvHelper;
 using CsvHelper.Configuration;
 using IrvineCubeSat.GpsParser.Attributes;
+using IrvineCubeSat.GpsParser.BodyParsers;
 
 namespace IrvineCubeSat.GpsParser
 {
@@ -25,7 +26,7 @@ namespace IrvineCubeSat.GpsParser
         private static readonly Regex s_messageRegex = new Regex(pattern: @"#(?<A>[^\*]+)\*(?<B>[a-f\d]+)", Options);
         private static readonly Regex s_whiteSpaceRegex = new Regex(pattern: @"[\n\r\s\t]+", Options);
 
-        private readonly Dictionary<string, Type> _types = new Dictionary<string, Type>(StringComparer.OrdinalIgnoreCase);
+        private readonly Dictionary<string, TypePair> _types = new Dictionary<string, TypePair>(StringComparer.OrdinalIgnoreCase);
 
         /// <summary>
         /// Initializes a new instance of the <see cref="AsciiGpsParser"/> class.
@@ -65,7 +66,33 @@ namespace IrvineCubeSat.GpsParser
             }
             else
             {
-                return _types.TryAdd(attribute.Command, type);
+                return _types.TryAdd(attribute.Name, new TypePair(type, attribute.ParserType));
+            }
+        }
+
+        /// <summary>
+        /// Registers the specified command message body type.
+        /// </summary>
+        /// <typeparam name="T">The type containing the model for the command message body.</typeparam>
+        /// <exception cref="ArgumentException">The command message body type is not annotated with the <see cref="CommandAttribute"/>.</exception>
+        public void Register<T>()
+        {
+            if (!TryRegister<T>())
+            {
+                throw new ArgumentException($"The command message body type must be annotated with {typeof(CommandAttribute).FullName}.", nameof(T));
+            }
+        }
+
+        /// <summary>
+        /// Registers the specified command message body type.
+        /// </summary>
+        /// <param name="type">The type containing the model for the command message body.</typeparam>
+        /// <exception cref="ArgumentException">The command message body type is not annotated with the <see cref="CommandAttribute"/>.</exception>
+        public void Register(Type type)
+        {
+            if (!TryRegister(type))
+            {
+                throw new ArgumentException($"The command message body type must be annotated with {typeof(CommandAttribute).FullName}.", nameof(type));
             }
         }
 
@@ -97,9 +124,12 @@ namespace IrvineCubeSat.GpsParser
 
                 header.Command = header.Command.Substring(startIndex: 0, header.Command.Length - 1);
 
+                TypePair pair = _types[header.Command];
+                IBodyParser parser = (IBodyParser)Activator.CreateInstance(pair.ParserType);
+
                 await csvReader.ReadAsync();
 
-                object body = csvReader.GetRecord(_types[header.Command]);
+                object body = parser.ParseBody(pair.CommandType, csvReader);
 
                 yield return new AsciiMessage(a, header, body, uint.Parse(match.Groups["B"].Value, NumberStyles.HexNumber));
             }

@@ -1,6 +1,10 @@
-﻿# Copyright (c) 2019-2022 Ishan Pranav. All rights reserved.
+﻿# Copyright (c) 2019-2023 Ishan Pranav. All rights reserved.
 # Licensed under the MIT License.
 
+Aging = Clock Aging Parameter (s)
+AgingRate = Clock Aging Parameter (s/s)
+AntiSpoofing = Anti-spoofing
+ArgumentOfPerigree = Argument of Perigree (s)
 Auxiliary1Status = Auxiliary 1 Status
 Auxiliary2Status = Auxiliary 2 Status
 Auxiliary3Status = Auxiliary 3 Status
@@ -32,26 +36,33 @@ HeightStandardDeviation = Height Standard Deviation (m)
 HorizontalDop = Horizontal Dilution of Precision
 HorizontalTimeDop = Horizontal and Time Dilution of Precision
 IdleTime = Idle Time (%)
+Incline = Angle of Inclination (rad from 0.3π rad)
 L1SatellitesInSolution = L1 Satellites in Solution
 Latitude = Latitude (degrees)
 LatitudeStandardDeviation = Latitude Standard Deviation (m)
 Longitude = Longitude (degrees)
 LongitudeStandardDeviation = Longitude Standard Deviation (m)
 MasterReceiverId = Master Receiver ID
+MeanAnomaly = Mean Anomaly of Reference Time (rad)
+MeanMotion = Computed Mean Motion (rad/s)
 MultiFrequencySatellitesInSolution = Multi-Frequency Satellites in Solution
 NorthBaseline = North Baseline (m)
 NorthBaselineStandardDeviation = North Baseline Standard Deviation (m)
 PositionDop = Position Dilution of Precision
 PositionType = Position Type
+Prn = PRN
 ReceiverSoftwareVersion = Receiver Software Version
 ReceiverStatus = Receiver Status
 ReceiverStatusPriorityMask = Receiver Status Priority Mask
 ReceiverStatusEventSetMask = Receiver Status Event Set Mask
 ReceiverStatusEventClearMask = Receiver Status Event Clear Mask
+RightAscension = Right Ascension (rad/s)
+RightAscensionRate = Rate of Right Ascension (rad)
 RoverReceiverId = Rover Receiver ID
 SatellitesAboveElevationMaskAngle = Satellites Above Elevation Mask Angle
 SatellitesInSolution = Satellites in Solution
 SatellitesTracked = Satellites Tracked
+SemiMajorAxis = Semi-major Axis (m)
 SequenceNumber = Sequence #
 SolutionAge = Solution Age
 SolutionStatus = Solution Status

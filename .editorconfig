@@ -1,4 +1,4 @@
-﻿# Copyright (c) 2021-2022 Ishan Pranav. All rights reserved.
+﻿# Copyright (c) 2021-2023 Ishan Pranav. All rights reserved.
 # Licensed under the MIT License.
 
 # editorconfig.org
@@ -42,7 +42,7 @@ dotnet_style_namespace_match_folder = true:suggestion
 
 # C# files
 [*.cs]
-file_header_template = {fileName}\nCopyright (c) 2019-2022 Ishan Pranav. All rights reserved.\nLicensed under the MIT License.
+file_header_template = {fileName}\nCopyright (c) 2019-2023 Ishan Pranav. All rights reserved.\nLicensed under the MIT License.
 csharp_style_namespace_declarations = file_scoped:suggestion
 # New line preferences
 csharp_new_line_before_open_brace = all

@@ -1,36 +1,34 @@
-﻿// HexUInt32Converter.cs
+﻿// ExponentDoubleConverter.cs
 // Copyright (c) 2019-2023 Ishan Pranav. All rights reserved.
 // Licensed under the MIT License.
 
+using System;
 using System.Globalization;
 using CsvHelper.Configuration;
 
 namespace CsvHelper.TypeConversion
 {
-    /// <summary>
-    /// Converts a <see cref="uint"/> to and from a hexadecimal <see cref="string"/>.
-    /// </summary>
-    public class HexUInt32Converter : DefaultTypeConverter
+    internal sealed class ExponentDoubleConverter : DoubleConverter
     {
         /// <inheritdoc/>
         public override object ConvertFromString(string? text, IReaderRow row, MemberMapData memberMapData)
         {
-            if (text is null)
+            if (double.TryParse(text, NumberStyles.Float, CultureInfo.InvariantCulture, out double result))
             {
-                return 0u;
+                return result;
             }
             else
             {
-                return uint.Parse(text, NumberStyles.HexNumber);
+                return 0d;
             }
         }
 
         /// <inheritdoc/>
         public override string ConvertToString(object? value, IWriterRow row, MemberMapData memberMapData)
         {
-            if (value is uint integer)
+            if (value is IFormattable formattable)
             {
-                return integer.ToString(format: "x");
+                return formattable.ToString(format: "e", formatProvider: null);
             }
             else
             {
