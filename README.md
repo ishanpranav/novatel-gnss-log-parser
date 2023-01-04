@@ -27,6 +27,7 @@ Each [GNSS log](https://docs.novatel.com/OEM7/Content/Logs/Core_Logs.htm) needs 
 | [`ALIGNBSLNENU`](https://docs.novatel.com/OEM7/Content/Logs/ALIGNBSLNENU.htm) | `EnuBaselinesUsingAlignCommand` |
 | [`ALIGNBSLNXYZ`](https://docs.novatel.com/OEM7/Content/Logs/ALIGNBSLNXYZ.htm) | `XyzBaselinesUsingAlignCommand` |
 | [`ALIGNDOP`](https://docs.novatel.com/OEM7/Content/Logs/ALIGNDOP.htm) | `DopCommand` |
+| [`ALMANAC`](https://docs.novatel.com/OEM7/Content/Logs/ALMANAC.htm) | `AlmanacCommand` |
 | [`BESTPOS`](https://docs.novatel.com/OEM7/Content/Logs/BESTPOS.htm) | `BestPositionCommand` |
 | [`RXSTATUS`](https://docs.novatel.com/OEM7/Content/Logs/RXSTATUS.htm) | `ReceiverStatusCommand` |
 
