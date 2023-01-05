@@ -99,14 +99,19 @@ internal sealed partial class MainForm : Form
 
     private async Task OpenAsync(string fileName)
     {
+        string displayName;
         string relativePath = Path.GetRelativePath(Environment.CurrentDirectory, fileName);
 
         if (relativePath.Length < fileName.Length)
         {
-            fileName = relativePath;
+            displayName = relativePath;
+        }
+        else
+        {
+            displayName = fileName;
         }
 
-        Text = $"{_text} - {fileName}";
+        Text = $"{_text} - {displayName}";
         myDataGridView.DataSource = null;
         myPropertyGrid.SelectedObject = null;
 

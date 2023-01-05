@@ -9,26 +9,26 @@ using CsvHelper.TypeConversion;
 namespace IrvineCubeSat.GpsParser.BodyParsers
 {
     /// <summary>
-    /// A specialized parser for the body of the <see cref="AlmanacCommand"/>. 
+    /// Provides a specialized parser for the body of the <see cref="GpsAlmanacCommand"/>. 
     /// </summary>
-    public class AlmanacBodyParser : IBodyParser
+    public class GpsAlmanacParser : IBodyParser
     {
         /// <inheritdoc/>
         public object ParseBody(Type type, CsvReader reader)
         {
-            if (!type.IsAssignableFrom(typeof(AlmanacCommand)))
+            if (!type.IsAssignableFrom(typeof(GpsAlmanacCommand)))
             {
                 throw new ArgumentException("The specified type is not supported by this parser.", nameof(type));
             }
 
-            int count = reader.GetField<int>(0);
             int index = 1;
-            AlmanacCommand[] messages = new AlmanacCommand[count];
-            ExponentDoubleConverter converter = new ExponentDoubleConverter();
+            int count = reader.GetField<int>(index: 0);
+            GpsAlmanacCommand[] messages = new GpsAlmanacCommand[count];
+            ExponentDoubleConverter converter = ExponentDoubleConverter.Default;
 
             for (int i = 0; i < count; i++)
             {
-                messages[i] = new AlmanacCommand(
+                messages[i] = new GpsAlmanacCommand(
                     reader.GetField<uint>(index),
                     reader.GetField<uint>(index + 1),
                     reader.GetField<double>(index + 2),
@@ -43,7 +43,6 @@ namespace IrvineCubeSat.GpsParser.BodyParsers
                     reader.GetField<double>(index + 11, converter),
                     reader.GetField<double>(index + 12, converter),
                     reader.GetField<bool>(index + 16));
-
                 index += 17;
             }
 

@@ -8,7 +8,7 @@ using CsvHelper;
 namespace IrvineCubeSat.GpsParser.BodyParsers
 {
     /// <summary>
-    /// A generalized <see cref="IBodyParser"/> which reads directly from a CSV reader.
+    /// Provides a generalized <see cref="IBodyParser"/> which reads directly from a CSV reader.
     /// </summary>
     public class BodyParser : IBodyParser
     {

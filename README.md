@@ -28,6 +28,8 @@ Each [GNSS log](https://docs.novatel.com/OEM7/Content/Logs/Core_Logs.htm) needs 
 | [`ALIGNBSLNXYZ`](https://docs.novatel.com/OEM7/Content/Logs/ALIGNBSLNXYZ.htm) | `XyzBaselinesUsingAlignCommand` |
 | [`ALIGNDOP`](https://docs.novatel.com/OEM7/Content/Logs/ALIGNDOP.htm) | `DopCommand` |
 | [`ALMANAC`](https://docs.novatel.com/OEM7/Content/Logs/ALMANAC.htm) | `AlmanacCommand` |
+| [`AUTHCODES`](https://docs.novatel.com/OEM7/Content/Logs/AUTHCODES.htm) | `AuthorizationCodesCommand` |
+| [`BDSALMANAC`](https://docs.novatel.com/OEM7/Content/Logs/BDSALMANAC.htm) | `BdsAlmanacCommand` |
 | [`BESTPOS`](https://docs.novatel.com/OEM7/Content/Logs/BESTPOS.htm) | `BestPositionCommand` |
 | [`RXSTATUS`](https://docs.novatel.com/OEM7/Content/Logs/RXSTATUS.htm) | `ReceiverStatusCommand` |
 

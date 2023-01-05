@@ -124,14 +124,16 @@ namespace IrvineCubeSat.GpsParser
 
                 header.Command = header.Command.Substring(startIndex: 0, header.Command.Length - 1);
 
-                TypePair pair = _types[header.Command];
-                IBodyParser parser = (IBodyParser)Activator.CreateInstance(pair.ParserType);
+                if (_types.TryGetValue(header.Command, out TypePair pair))
+                {
+                    IBodyParser parser = (IBodyParser)Activator.CreateInstance(pair.ParserType);
 
-                await csvReader.ReadAsync();
+                    await csvReader.ReadAsync();
 
-                object body = parser.ParseBody(pair.CommandType, csvReader);
+                    object body = parser.ParseBody(pair.CommandType, csvReader);
 
-                yield return new AsciiMessage(a, header, body, uint.Parse(match.Groups["B"].Value, NumberStyles.HexNumber));
+                    yield return new AsciiMessage(a, header, body, uint.Parse(match.Groups["B"].Value, NumberStyles.HexNumber));
+                }
             }
         }
     }

@@ -79,9 +79,7 @@ namespace IrvineCubeSat.GpsParser
         {
             get
             {
-                return new DateTime(year: 1980, month: 1, day: 6)
-                    .AddDays(Weeks * 7)
-                    .AddSeconds(Seconds);
+                return Time.CreateTimestamp(Time.GpsReference, Weeks, Seconds);
             }
         }
 

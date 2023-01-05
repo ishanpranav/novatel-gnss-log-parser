@@ -12,31 +12,30 @@ namespace IrvineCubeSat.GpsParser
     /// <summary>
     /// Represents a decoded GPS almanac (<c>ALMANAC</c>) command message body.
     /// </summary>
-    [Command("ALMANAC", typeof(AlmanacBodyParser))]
-    public class AlmanacCommand
+    [Command("ALMANAC", typeof(GpsAlmanacParser))]
+    public class GpsAlmanacCommand
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref="AlmanacCommand"/> class.
+        /// Initializes a new instance of the <see cref="GpsAlmanacCommand"/> class.
         /// </summary>
         /// <param name="prn">The satellite PRN number.</param>
-        /// <param name="weeks">The GPS reference week number.</param>
+        /// <param name="weeks">The GPS reference week number: the number of weeks since January 6, 1980.</param>
         /// <param name="seconds">The number of seconds from the beginning of the GPS reference week.</param>
         /// <param name="eccentricity">The eccentricity.</param>
         /// <param name="rightAscensionRate">The rate of right ascension (<em>ώ</em>), in radians per second.</param>
         /// <param name="rightAscension">The right ascension (<em>ω0</em>), in radians.</param>
         /// <param name="argumentOfPerigree">The argument of perigree (<em>ω</em>), in radians.</param>
         /// <param name="meanAnomaly">The mean anomaly of the reference time (<em>M0</em>), in radians.</param>
-        /// <param name="aging">The clock aging parameter (<em>af0</em>), in seconds.</param>
-        /// <param name="agingRate">The clock aging parameter (<em>af1</em>), in seconds per second.</param>
+        /// <param name="aging">The constant clock aging parameter (<em>af0</em>), in seconds.</param>
+        /// <param name="agingRate">The linear clock aging parameter (<em>af1</em>), in seconds per second.</param>
         /// <param name="meanMotion">The computed mean motion (<em>N0</em>) in radians per second.</param>
         /// <param name="semiMajorAxis">The length of the semi-major axis (<em>A</em>), in meters.</param>
         /// <param name="incline">The angle of inclination, in radians, relative to 0.3 times <see cref="Math.PI"/> radians.</param>
         /// <param name="antiSpoofing"><see langword="true"/> if anti-spoofing is on; otherwise, <see langword="false"/>.</param>
-        public AlmanacCommand(uint prn, uint weeks, double seconds, double eccentricity, double rightAscension, double rightAscensionRate, double argumentOfPerigree, double meanAnomaly, double aging, double agingRate, double meanMotion, double semiMajorAxis, double incline, bool antiSpoofing)
+        public GpsAlmanacCommand(uint prn, uint weeks, double seconds, double eccentricity, double rightAscension, double rightAscensionRate, double argumentOfPerigree, double meanAnomaly, double aging, double agingRate, double meanMotion, double semiMajorAxis, double incline, bool antiSpoofing)
         {
             Prn = prn;
-            Weeks = weeks;
-            Seconds = seconds;
+            Timestamp = Time.CreateTimestamp(Time.GpsReference, weeks, seconds);
             Eccentricity = eccentricity;
             RightAscension = rightAscension;
             RightAscensionRate = rightAscensionRate;
@@ -58,33 +57,11 @@ namespace IrvineCubeSat.GpsParser
         public uint Prn { get; }
 
         /// <summary>
-        /// Gets the GPS reference week number: the number of weeks since January 6, 1980.
-        /// </summary>
-        /// <value>The number of weeks since January 6, 1980.</value>
-        [Browsable(false)]
-        public uint Weeks { get; }
-
-        /// <summary>
-        /// Gets the GPS reference second number: the number of seconds from the beginning of the GPS reference week.
-        /// </summary>
-        /// <value>The number of seconds from the beginning of the GPS reference week, accurate to the millisecond level.</value>
-        [Browsable(false)]
-        public double Seconds { get; }
-
-        /// <summary>
         /// Gets the GPS timestamp.
         /// </summary>
         /// <value>The current GPS time.</value>
         [LocalizedDisplayName(nameof(Timestamp))]
-        public DateTime Timestamp
-        {
-            get
-            {
-                return new DateTime(year: 1980, month: 1, day: 6)
-                    .AddDays(Weeks * 7)
-                    .AddSeconds(Seconds);
-            }
-        }
+        public DateTime Timestamp { get; }
 
         /// <summary>
         /// Gets the eccentricity.
@@ -122,14 +99,14 @@ namespace IrvineCubeSat.GpsParser
         public double MeanAnomaly { get; }
 
         /// <summary>
-        /// Gets the clock aging parameter.
+        /// Gets the first clock aging parameter, or the constant term of the clock correction polynomial.
         /// </summary>
         /// <value>The clock aging parameter (<em>af0</em>), in seconds.</value>
         [LocalizedDisplayName(nameof(Aging))]
         public double Aging { get; }
 
         /// <summary>
-        /// Gets the clock aging parameter as a rate.
+        /// Gets the second clock aging parameter, or the linear term of the clock correction polynomial.
         /// </summary>
         /// <value>The clock aging parameter (<em>af1</em>), in seconds per second.</value>
         [LocalizedDisplayName(nameof(AgingRate))]

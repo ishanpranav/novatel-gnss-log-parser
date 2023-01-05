@@ -1,16 +1,22 @@
 ﻿# Copyright (c) 2019-2023 Ishan Pranav. All rights reserved.
 # Licensed under the MIT License.
 
+Aging = Clock Correction Polynomial
+AuthorizationCode = Authorization Code
 Auxiliary1Status = Auxiliary 1
 Auxiliary2Status = Auxiliary 2
 Auxiliary3Status = Auxiliary 3
 Auxiliary4Status = Auxiliary 4
+BdsAlmanacCommand = Almanac
 BaseStationId = Base Station
 Command = Log
 DatumIdNumber = Datum
 GeometricDop = Dilution of Precision
 PositionType = Position
 ReceiverStatus = Receiver
+RightAscension = Right Ascension
+RoverReceiverId = Receiver
+SatelliteId = Satellite
 SatellitesTracked = Satellites
 SolutionStatus = Solution
 Timestamp = Timestamp

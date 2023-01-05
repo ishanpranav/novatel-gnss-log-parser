@@ -1,10 +1,12 @@
 ﻿# Copyright (c) 2019-2023 Ishan Pranav. All rights reserved.
 # Licensed under the MIT License.
 
-Aging = Clock Aging Parameter (s)
-AgingRate = Clock Aging Parameter (s/s)
+Aging = Clock Correction, Constant Coefficient (s)
+AgingRate = Clock Correction, Linear Coefficient (s/s)
 AntiSpoofing = Anti-spoofing
 ArgumentOfPerigree = Argument of Perigree (s)
+AuthorizationCode = Authorization Code
+AuthorizationCodeType = Authorization Code Type
 Auxiliary1Status = Auxiliary 1 Status
 Auxiliary2Status = Auxiliary 2 Status
 Auxiliary3Status = Auxiliary 3 Status
@@ -22,12 +24,14 @@ Auxiliary2StatusEventClearMask = Auxiliary 2 Status Event Clear Mask
 Auxiliary3StatusEventClearMask = Auxiliary 3 Status Event Clear Mask
 Auxiliary4StatusEventClearMask = Auxiliary 4 Status Event Clear Mask
 BaseStationId = Base Station ID
+CorrectionIncline = Correction of Orbit Reference Inclination (rad)
 DatumIdNumber = Datum ID #
 DifferentialAge = Differential Age
 EastBaseline = East Baseline (m)
 EastBaselineStandardDeviation = East Baseline Standard Deviation (m)
 ElevationMaskAngle = Elevation Mask Angle
 ExtendedSolutionStatus = Solution Status (Extended)
+FirmwareSignatureStatus = Firmware Signature Status
 GalileoBeiDouSignalsInSolution = Galileo and BeiDou Signals in Solution
 GeometricDop = Geometric Dilution of Precision
 GpsGlonassSignalsInSolution = GPS and GLONASS Signals in Solution
@@ -58,7 +62,9 @@ ReceiverStatusEventSetMask = Receiver Status Event Set Mask
 ReceiverStatusEventClearMask = Receiver Status Event Clear Mask
 RightAscension = Right Ascension (rad/s)
 RightAscensionRate = Rate of Right Ascension (rad)
+RootSemiMajorAxis = Square Root of Semi-major Axis (sqrt(m))
 RoverReceiverId = Rover Receiver ID
+SatelliteId = Satellite ID
 SatellitesAboveElevationMaskAngle = Satellites Above Elevation Mask Angle
 SatellitesInSolution = Satellites in Solution
 SatellitesTracked = Satellites Tracked

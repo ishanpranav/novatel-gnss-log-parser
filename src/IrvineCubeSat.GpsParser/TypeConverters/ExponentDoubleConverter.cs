@@ -10,6 +10,20 @@ namespace CsvHelper.TypeConversion
 {
     internal sealed class ExponentDoubleConverter : DoubleConverter
     {
+        private static ExponentDoubleConverter? s_instance;
+
+        private ExponentDoubleConverter() { }
+
+        public static ExponentDoubleConverter Default
+        {
+            get
+            {
+                s_instance ??= new ExponentDoubleConverter();
+
+                return s_instance;
+            }
+        }
+
         /// <inheritdoc/>
         public override object ConvertFromString(string? text, IReaderRow row, MemberMapData memberMapData)
         {
