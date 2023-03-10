@@ -26,13 +26,13 @@ namespace IrvineCubeSat.GpsParser
         /// <param name="rightAscension">The right ascension (<em>ω0</em>), in radians.</param>
         /// <param name="argumentOfPerigree">The argument of perigree (<em>ω</em>), in radians.</param>
         /// <param name="meanAnomaly">The mean anomaly of the reference time (<em>M0</em>), in radians.</param>
-        /// <param name="aging">The constant clock aging parameter (<em>af0</em>), in seconds.</param>
+        /// <param name="agingOffset">The constant clock aging parameter (<em>af0</em>), in seconds.</param>
         /// <param name="agingRate">The linear clock aging parameter (<em>af1</em>), in seconds per second.</param>
         /// <param name="meanMotion">The computed mean motion (<em>N0</em>) in radians per second.</param>
         /// <param name="semiMajorAxis">The length of the semi-major axis (<em>A</em>), in meters.</param>
         /// <param name="incline">The angle of inclination, in radians, relative to 0.3 times <see cref="Math.PI"/> radians.</param>
         /// <param name="antiSpoofing"><see langword="true"/> if anti-spoofing is on; otherwise, <see langword="false"/>.</param>
-        public GpsAlmanacCommand(uint prn, uint weeks, double seconds, double eccentricity, double rightAscension, double rightAscensionRate, double argumentOfPerigree, double meanAnomaly, double aging, double agingRate, double meanMotion, double semiMajorAxis, double incline, bool antiSpoofing)
+        public GpsAlmanacCommand(uint prn, uint weeks, double seconds, double eccentricity, double rightAscension, double rightAscensionRate, double argumentOfPerigree, double meanAnomaly, double agingOffset, double agingRate, double meanMotion, double semiMajorAxis, double incline, bool antiSpoofing)
         {
             Prn = prn;
             Timestamp = Time.CreateTimestamp(Time.GpsReference, weeks, seconds);
@@ -41,7 +41,7 @@ namespace IrvineCubeSat.GpsParser
             RightAscensionRate = rightAscensionRate;
             ArgumentOfPerigree = argumentOfPerigree;
             MeanAnomaly = meanAnomaly;
-            Aging = aging;
+            AgingOffset = agingOffset;
             AgingRate = agingRate;
             MeanMotion = meanMotion;
             SemiMajorAxis = semiMajorAxis;
@@ -102,8 +102,8 @@ namespace IrvineCubeSat.GpsParser
         /// Gets the first clock aging parameter, or the constant term of the clock correction polynomial.
         /// </summary>
         /// <value>The clock aging parameter (<em>af0</em>), in seconds.</value>
-        [LocalizedDisplayName(nameof(Aging))]
-        public double Aging { get; }
+        [LocalizedDisplayName(nameof(AgingOffset))]
+        public double AgingOffset { get; }
 
         /// <summary>
         /// Gets the second clock aging parameter, or the linear term of the clock correction polynomial.

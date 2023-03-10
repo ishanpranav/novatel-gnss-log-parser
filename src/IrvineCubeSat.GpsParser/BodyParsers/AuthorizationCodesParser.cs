@@ -4,7 +4,6 @@
 
 using System;
 using CsvHelper;
-using CsvHelper.TypeConversion;
 
 namespace IrvineCubeSat.GpsParser.BodyParsers
 {

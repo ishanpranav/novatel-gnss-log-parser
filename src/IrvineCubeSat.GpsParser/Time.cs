@@ -1,4 +1,4 @@
-﻿// DateTimes.cs
+﻿// Time.cs
 // Copyright (c) 2019-2023 Ishan Pranav. All rights reserved.
 // Licensed under the MIT License.
 

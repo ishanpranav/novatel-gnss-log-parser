@@ -1,4 +1,5 @@
 ﻿# https://docs.novatel.com/OEM7/Content/Messages/ASCII.htm
+# https://docs.novatel.com/OEM7/Content/Logs/BDSCLOCK.htm
 # https://docs.novatel.com/OEM7/Content/Logs/BESTPOS.htm
 # https://docs.novatel.com/OEM7/Content/Logs/RXSTATUS.htm
 
@@ -16,8 +17,12 @@ Auxiliary3StatusEventSetMask = The receiver will generate an event message whene
 Auxiliary4StatusEventSetMask = The receiver will generate an event message whenever any of these flags becomes active in the Auxiliary 4 Status property.
 Height = The height above sea level.
 L1SatellitesInSolution = The number of satellites with L1/E1/B1 signals used in the solution.
+LeapSecondDay = The day number of the week of the new leap second.
+LeapSecondWeek = The week number of the new leap second in BeiDou time.
 MultiFrequencySatellitesInSolution = The number of satellites with multi-frequency signals used in the solution.
 Port = The name of the port from which the log was generated.
+PostLeapSecondDelta = The time difference due to leap seconds after the new leap second is effective.
+PreLeapSecondDelta = The time difference due to leap seconds before the new leap second is effective.
 ReceiverSoftwareVersion = A value representing the receiver software build number.
 ReceiverStatusEventClearMask = The receiver will generate an event message whenever any of these flags is cleared from the the Receiver Status property.
 ReceiverStatusPriorityMask = The receiver will trigger an error whenever any of these flags becomes active in the Receiver Status property.
@@ -27,6 +32,6 @@ SatellitesTracked = The number of satellites tracked.
 Seconds = The number of seconds from the beginning of the reference week.
 SequenceNumber = A number that counts from one less than the number of logs down to 0, where 0 means it is the last one of the set. Most logs only come out one at a time in which case this number is 0.
 StatusCodes = The number of status codes.
-TimeStatus = The value indicates the quality of the GPS reference time.
+TimeStatus = This value indicates the quality of the GPS reference time.
 Undulation = The relationship between the geoid and the ellipsoid of the chosen datum.
 Weeks = The number of weeks since January 6, 1980.

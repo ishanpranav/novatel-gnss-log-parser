@@ -1,7 +1,7 @@
 ﻿# Copyright (c) 2019-2023 Ishan Pranav. All rights reserved.
 # Licensed under the MIT License.
 
-Aging = Clock Correction Polynomial
+AgingOffset = Clock Correction Polynomial
 AuthorizationCode = Authorization Code
 Auxiliary1Status = Auxiliary 1
 Auxiliary2Status = Auxiliary 2
@@ -11,8 +11,13 @@ BdsAlmanacCommand = Almanac
 BaseStationId = Base Station
 Command = Log
 DatumIdNumber = Datum
+GalileoClockOffset = Galileo Time Correction Polynomial
 GeometricDop = Dilution of Precision
+GlonassClockOffset = GLONASS Time Correction Polynomial
+GpsClockOffset = GPS Time Correction Polynomial
+PositionAveragingStatus = Position Averaging
 PositionType = Position
+PreLeapSecondDelta = Effective Leap Second Delta
 ReceiverStatus = Receiver
 RightAscension = Right Ascension
 RoverReceiverId = Receiver
@@ -20,3 +25,4 @@ SatelliteId = Satellite
 SatellitesTracked = Satellites
 SolutionStatus = Solution
 Timestamp = Timestamp
+UtcClockOffset = UTC Correction Polynomial

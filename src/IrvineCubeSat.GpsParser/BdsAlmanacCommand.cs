@@ -115,18 +115,18 @@ namespace IrvineCubeSat.GpsParser
         /// </summary>
         /// <value>The clock aging parameter (<em>af0</em>), in seconds.</value>
         [Index(10)]
-        [LocalizedCategory(nameof(Aging))]
-        [LocalizedDescription(nameof(Aging))]
-        [LocalizedDisplayName(nameof(Aging))]
+        [LocalizedCategory(nameof(AgingOffset))]
+        [LocalizedDescription(nameof(AgingOffset))]
+        [LocalizedDisplayName(nameof(AgingOffset))]
         [ReadOnly(true)]
-        public double Aging { get; set; }
+        public double AgingOffset { get; set; }
 
         /// <summary>
         /// Gets or sets the second clock aging parameter, or the linear term of the clock correction polynomial.
         /// </summary>
         /// <value>The clock aging parameter (<em>af1</em>), in seconds per second.</value>
         [Index(11)]
-        [LocalizedCategory(nameof(Aging))]
+        [LocalizedCategory(nameof(AgingOffset))]
         [LocalizedDescription(nameof(AgingRate))]
         [LocalizedDisplayName(nameof(AgingRate))]
         [ReadOnly(true)]
