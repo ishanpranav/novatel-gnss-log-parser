@@ -69,7 +69,7 @@
         <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
       </dsig:Transforms>
       <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-      <dsig:DigestValue>ksrsSneoNSf+TvGXFD5fpDgHcLoe6Ysb1oSzEA7OawU=</dsig:DigestValue>
+      <dsig:DigestValue>A8gocejsQfeQ1J6ELgDMsTD++EvIYyD9eRHLVXqS+wk=</dsig:DigestValue>
     </hash>
   </file>
   <file name="IrvineCubeSat.GpsParser.Windows.deps.json" size="1395">
@@ -87,7 +87,7 @@
         <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
       </dsig:Transforms>
       <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-      <dsig:DigestValue>37lyruPwDx3AX6jvwHZuiIUiG3zJoL8VvGBl3KMd4e4=</dsig:DigestValue>
+      <dsig:DigestValue>z1X7thjNpv1xyBziyJhfNOd54JPoZruRAiekoHfoSUc=</dsig:DigestValue>
     </hash>
   </file>
   <file name="IrvineCubeSat.GpsParser.Windows.exe" size="148480">
@@ -96,7 +96,7 @@
         <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
       </dsig:Transforms>
       <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-      <dsig:DigestValue>FIeGU+hoX7j/DrwtBgi/C89knoyFqcRqUgn+iNq/I68=</dsig:DigestValue>
+      <dsig:DigestValue>83QtYJ5+5zdF0m2oUGpg56cklKRUU2ksg7dwYkhHgyw=</dsig:DigestValue>
     </hash>
   </file>
   <file name="IrvineCubeSat.GpsParser.Windows.runtimeconfig.json" size="372">
@@ -117,13 +117,13 @@
       <dsig:DigestValue>vYH1WC4DBvkBaTxn578fQvzIJHP0KN/8ZiiuFDRBSQ8=</dsig:DigestValue>
     </hash>
   </file>
-  <file name="README.md" size="5745">
+  <file name="README.md" size="5756">
     <hash>
       <dsig:Transforms>
         <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
       </dsig:Transforms>
       <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-      <dsig:DigestValue>TPCYpNl9Sc8rIz2V+uf4tK6rCN/rLkhmv0Z27tTBlJY=</dsig:DigestValue>
+      <dsig:DigestValue>bH/+YmMht8Y156UG87H0OiOmiAFg7Mle4BOLk1YyvO4=</dsig:DigestValue>
     </hash>
   </file>
   <file name="THIRD-PARTY-NOTICES.txt" size="12976">

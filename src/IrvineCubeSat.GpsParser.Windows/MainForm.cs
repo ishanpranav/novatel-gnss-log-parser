@@ -26,6 +26,7 @@ internal sealed partial class MainForm : Form
         vendorToolStripStatusLabel.Text = Resources.VendorMessage;
     }
 
+    /// <inheritdoc/>
     protected override void OnLoad(EventArgs e)
     {
         Text = _text;
@@ -33,6 +34,7 @@ internal sealed partial class MainForm : Form
         base.OnLoad(e);
     }
 
+    /// <inheritdoc/>
     protected override void OnDragOver(DragEventArgs drgevent)
     {
         if (drgevent.Data is not null && drgevent.Data.GetDataPresent(DataFormats.FileDrop))
@@ -47,6 +49,7 @@ internal sealed partial class MainForm : Form
         base.OnDragOver(drgevent);
     }
 
+    /// <inheritdoc/>
     protected override async void OnDragDrop(DragEventArgs drgevent)
     {
         if (drgevent.Data is not null && drgevent.Data.GetData(DataFormats.FileDrop) is string[] fileNames && fileNames.Length > 0)

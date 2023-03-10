@@ -21,10 +21,6 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <None Remove="Resources.restext" />
-  </ItemGroup>
-
-  <ItemGroup>
     <Content Include="..\..\LICENSE.txt" Link="LICENSE.txt" />
     <Content Include="..\..\THIRD-PARTY-NOTICES.txt" Link="THIRD-PARTY-NOTICES.txt" />
   </ItemGroup>
