@@ -40,7 +40,7 @@ To add support for the GNSS [`TIME`](https://docs.novatel.com/OEM7/Content/Logs/
 public class TimeCommand
 {
     [Index(0)] // Field position
-    public GnssClockModelStatus Status { get; } 
+    public GnssClockModelStatus Status { get; set; } 
 }
 
 public enum GnssClockModelStatus
