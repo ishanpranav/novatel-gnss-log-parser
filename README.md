@@ -1,10 +1,13 @@
-# GNSS Log Parser
+# GNSS log parser
 This is a cross-platform library and application for parsing NovAtel GNSS command output message logs. The project includes a standalone class library, a cross-platform command-line tool, and a Windows GUI application.
 
 This project is a [fork of the parser designed by Ishan Pranav (me!)](https://github.com/BeckmanAvionics/gps-output-parser) for [Arnold O. Beckman High School\'s Avionics Team](https://github.com/BeckmanAvionics), part of the Irvine CubeSat STEM Program. The software is designed for compatibility with NovAtel\'s OEM6 and OEM7 products.
+
+You can download the software from
+[the repository website](https://ishanpranav.github.io/novatel-gnss-log-parser/).
 ## Screenshots
 ![Screenshot of the GNSS Log Visualizer application.](docs/images/Capture.png "GNSS Log Visualizer Application")
-## API Documentation
+## API
 The example below uses an ASCII parser to read messages from a string. Binary and Abbreviated ASCII messages are not supported.
 ```csharp
 string value = @"#

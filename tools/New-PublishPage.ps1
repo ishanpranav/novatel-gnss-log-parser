@@ -1,9 +1,12 @@
+# New-PublishPage.ps1
+# Copyright (c) 2023 Ishan Pranav. All rights reserved.
+# Licensed under the MIT License.
+
 [Environment]::CurrentDirectory = $(Get-Location)
 
 $xslCompiledTransform = New-Object System.Xml.Xsl.XslCompiledTransform
-$str = ((Get-Content "../docs/publish.html" -Raw).Replace("&nbsp", " "))
-$stringReader = [System.IO.StringReader]::new($str)
-$streamWriter = (New-Object System.IO.StreamWriter "../docs/index.html")
+$stringReader = [System.IO.StringReader]::new((Get-Content "../docs/publish.html" -Raw).Replace("&nbsp", " "))
+$xmlWriter = [System.Xml.XmlWriter]::Create("../docs/index.html")
 
 try {
     $xmlReader = [System.Xml.XmlReader]::Create($stringReader)
@@ -11,7 +14,7 @@ try {
     $xslCompiledTransform.Load("publish-page.xsl")
     
     try {
-        $xslCompiledTransform.Transform($xmlReader, $streamWriter)   
+        $xslCompiledTransform.Transform($xmlReader, $xmlWriter)   
     }
     finally {
         $xmlReader.Dispose()
@@ -19,5 +22,5 @@ try {
 }
 finally {
     $stringReader.Close()
-    $streamWriter.Close()
+    $xmlWriter.Close() 
 }

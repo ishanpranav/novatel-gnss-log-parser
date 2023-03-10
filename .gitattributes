@@ -5,3 +5,5 @@
 *.manifest binary
 *.application binary
 *.deploy binary
+docs/*.css linguist-detectable
+tools/*.xsl linguist-detectable
