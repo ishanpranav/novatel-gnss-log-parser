@@ -38,7 +38,9 @@ Licensed under the MIT License.
               type="text/css"
               integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD"
               crossorigin="anonymous"/>
-        <link href="index.css" rel="stylesheet" type="text/css"/>
+        <link href="index.css"
+              rel="stylesheet"
+              type="text/css"/>
       </head>
       <body>
         <div class="container col-lg-8 mx-auto p-4 py-md-5">
@@ -56,14 +58,22 @@ Licensed under the MIT License.
               command output message logs.
             </p>
             <div class="mb-5">
-              <a href="{$InstallerHref}" class="btn btn-primary btn-lg px-4">
+              <a href="{$InstallerHref}"
+                 class="btn btn-primary btn-lg px-4">
                 Download v<xsl:value-of select="$Version"/>
               </a>
-            </div>
+              <a href="https://github.com/ishanpranav/novatel-gnss-log-parser"
+                 target="_blank"
+                 class="btn btn-light btn-lg px-4">
+                View source
+              </a>
+             </div>
             <hr class="col-3 col-md-2 mb-5"/>
             <div class="row g-5">
               <div class="col-md-6">
-                <img src="images/Capture.png" alt="A screenshot of the application." class="img-fluid"/>
+                <img src="images/Capture.png"
+                     alt="A screenshot of the application."
+                     class="img-fluid"/>
               </div>
               <div class="col-md-6">
                 <h2>Prerequisites</h2>
@@ -81,7 +91,8 @@ Licensed under the MIT License.
                   <xsl:copy-of select="$BootstrapperSection/TR[3]/TD"/>
                 </p>
                 <p>
-                  <a href="{$InstallerHref}" class="btn btn-light btn-md px-4">Download installer</a>
+                  <a href="{$InstallerHref}"
+                     class="btn btn-light btn-md px-4">Download installer</a>
                 </p>
               </div>
             </div>
